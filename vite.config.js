@@ -1,14 +1,26 @@
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { minify } from "html-minifier-terser";
+import webfontDownload from "vite-plugin-webfont-dl";
 
 export default defineConfig({
+  root: "src",
   build: {
+    outDir: "../dist",
     cssCodeSplit: false,
     minify: "esbuild",
   },
+  server: {
+    allowedHosts: ["sergios-laptop"],
+  },
   plugins: [
     tailwindcss(),
+    webfontDownload(["https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap"], {
+      injectAsStyleTag: true,
+      minifyCss: true,
+      async: true,
+      cache: true,
+    }),
     {
       name: "inline-css-and-minify",
       enforce: "post",
