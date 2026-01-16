@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer utilities {
+  .text-body {
+    @apply text-gray-700 dark:text-gray-300 leading-relaxed transition-colors;
+  }
+
+  .text-muted {
+    @apply text-gray-600 dark:text-gray-400 transition-colors;
+  }
+
+  .text-accent {
+    @apply text-teal-600 dark:text-teal-400 transition-colors;
+  }
+
+  .transition-theme {
+    @apply transition-colors duration-200;
+  }
+}
