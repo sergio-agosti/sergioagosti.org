@@ -2,11 +2,16 @@ import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { minify } from "html-minifier-terser";
 import webfontDownload from "vite-plugin-webfont-dl";
+import { resolve } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   root: "src",
   build: {
-    outDir: "../dist",
+    outDir: resolve(__dirname, "dist"),
+    emptyOutDir: true,
     cssCodeSplit: false,
     minify: "esbuild",
   },
