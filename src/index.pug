@@ -3,18 +3,12 @@ extends layout.pug
 block content
   header(class="container my-8 space-y-2 md:my-16")
     h1(class="text-4xl text-teal-600 transition dark:text-teal-400") Sergio Agosti
-    p(class="text-lg") Open-source web developer
+    p Open-source web developer
   main(class="container my-8 space-y-16 md:my-16")
     section(aria-labelledby="about-heading" class="space-y-4")
       h2#about-heading(class="sr-only") About
-      p
-        | I develop accessible, high-performance websites and web applications using open-source technologies, with
-        | thoughtful use of AI.
-      p
-        | With over 
-        time(datetime="P15Y") 15 years
-        |  of experience, my work focuses on code quality, best
-        | practices, and long-term maintainability.
+      p I develop accessible, high-performance websites and web applications using open-source technologies, with thoughtful use of AI.
+      p With over #[time(datetime="P15Y") 15 years] of experience, my work focuses on code quality, best practices, and long-term maintainability.
     section(aria-labelledby="contact-heading" class="space-y-4")
       h2#contact-heading(class="sr-only") Contact
       p I'm available for projects and collaboration.
