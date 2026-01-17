@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-@source "../src/**/*.pug";
-@source "../src/**/*.html";
-@source "../src/**/*.js";
-
 @theme {
   --font-mono: "JetBrains Mono", monospace;
 }

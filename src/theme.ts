@@ -5,9 +5,9 @@ import './style.css';
   const prefersDarkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   const prefersDark = prefersDarkMediaQuery.matches;
 
-  let currentTheme = localStorage.getItem("theme") || null;
+  let currentTheme: string | null = localStorage.getItem("theme") || null;
 
-  function applyTheme(theme) {
+  function applyTheme(theme: string | null): void {
     switch (theme) {
       case "dark":
         html.classList.add("dark");
@@ -26,10 +26,10 @@ import './style.css';
   document.addEventListener("DOMContentLoaded", () => {
     // Email obfuscation - decode and set email link
     (() => {
-      const emailLink = document.getElementById("email-link");
+      const emailLink = document.getElementById("email-link") as HTMLAnchorElement | null;
 
       if (emailLink) {
-        emailLink.textContent = atob(emailLink.dataset.email);
+        emailLink.textContent = atob(emailLink.dataset.email || "");
         emailLink.href = `mailto:${emailLink.textContent}`;
       }
     })();
@@ -41,26 +41,28 @@ import './style.css';
       const systemIcon = document.getElementById("system-icon");
       const themeToggle = document.getElementById("theme-toggle");
 
-      function updateIcon() {
-        sunIcon.classList.add("hidden");
-        moonIcon.classList.add("hidden");
-        systemIcon.classList.add("hidden");
+      if (!sunIcon || !moonIcon || !systemIcon || !themeToggle) return;
+
+      function updateIcon(): void {
+        sunIcon!.classList.add("hidden");
+        moonIcon!.classList.add("hidden");
+        systemIcon!.classList.add("hidden");
 
         switch (currentTheme) {
           case "light":
-            sunIcon.classList.remove("hidden");
+            sunIcon!.classList.remove("hidden");
             break;
           case "dark":
-            moonIcon.classList.remove("hidden");
+            moonIcon!.classList.remove("hidden");
             break;
           default:
-            systemIcon.classList.remove("hidden");
+            systemIcon!.classList.remove("hidden");
         }
       }
 
       updateIcon();
 
-      prefersDarkMediaQuery.addEventListener("change", (e) => {
+      prefersDarkMediaQuery.addEventListener("change", (e: MediaQueryListEvent) => {
         currentTheme = e.matches ? "dark" : "light";
         localStorage.removeItem("theme");
         applyTheme(currentTheme);
