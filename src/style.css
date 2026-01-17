@@ -17,4 +17,7 @@
   * {
     @apply m-0 box-border font-normal;
   }
+  :any-link {
+    @apply text-teal-600 underline-offset-4 transition not-hover:decoration-current/50 dark:text-teal-400;
+  }
 }
