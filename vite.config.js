@@ -4,6 +4,8 @@ import { minify } from "html-minifier-terser";
 import webfontDownload from "vite-plugin-webfont-dl";
 import { resolve } from "path";
 import { fileURLToPath } from "url";
+import { readFileSync, existsSync } from "fs";
+import pug from "pug";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 
@@ -20,7 +22,23 @@ export default defineConfig({
   },
   plugins: [
     tailwindcss(),
-    webfontDownload(["https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap"], {
+    {
+      name: "pug-to-html",
+      enforce: "pre",
+      transformIndexHtml(html) {
+        const pugPath = resolve(__dirname, "src", "index.pug");
+        if (existsSync(pugPath)) {
+          const pugTemplate = readFileSync(pugPath, "utf-8");
+          const compiled = pug.compile(pugTemplate, {
+            filename: pugPath,
+            basedir: resolve(__dirname, "src"),
+          });
+          return compiled();
+        }
+        return html;
+      },
+    },
+    webfontDownload(["https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap"], {
       injectAsStyleTag: true,
       minifyCss: true,
       async: true,
@@ -42,12 +60,12 @@ export default defineConfig({
           }
         }
 
+        // Remove local stylesheet link tags (relative paths like ./style.css)
+        html = html.replace(/<link[^>]*\.\/style\.css[^>]*>/gi, "");
+
         if (cssFiles.length > 0) {
           const cssContent = cssFiles.join("\n");
           const styleTag = `<style>${cssContent}</style>`;
-
-          // Remove existing link tags for CSS
-          html = html.replace(/<link[^>]*rel=["']stylesheet["'][^>]*>/gi, "");
 
           // Inject style tag before closing head tag
           html = html.replace("</head>", `${styleTag}</head>`);
