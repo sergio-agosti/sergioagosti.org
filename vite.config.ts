@@ -45,6 +45,9 @@ export default defineConfig({
       transformIndexHtml(html: string, ctx): string {
         if (!ctx.bundle) return html;
 
+        // Remove any hardcoded CSS links (from Pug template)
+        html = html.replace(/<link[^>]*href="\.\/main\.css"[^>]*>/gi, "");
+
         // Find CSS file in bundle
         const cssFile = Object.values(ctx.bundle).find(
           (output) => output.type === "asset" && output.fileName.endsWith(".css")
