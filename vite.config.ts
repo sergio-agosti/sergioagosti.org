@@ -39,7 +39,7 @@ export default defineConfig({
       cache: true,
     }),
     {
-      name: "inject-css",
+      name: "inject-assets",
       enforce: "post",
       apply: "build",
       transformIndexHtml(html: string, ctx): string {
@@ -54,6 +54,16 @@ export default defineConfig({
           const cssLink = `<link rel="stylesheet" href="./${cssFile.fileName}">`;
           // Inject CSS link before closing head tag
           html = html.replace("</head>", `  ${cssLink}\n</head>`);
+        }
+
+        // Find JS file in bundle and replace .ts references
+        const jsFile = Object.values(ctx.bundle).find(
+          (output) => output.type === "chunk" && output.fileName.endsWith(".js")
+        );
+
+        if (jsFile && typeof jsFile.fileName === "string") {
+          // Replace any script src pointing to .ts files with the actual built .js file
+          html = html.replace(/src="\.\/main\.ts"/g, `src="./${jsFile.fileName}"`);
         }
 
         return html;
