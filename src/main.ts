@@ -13,11 +13,11 @@ import './main.css';
 // Theme toggle - cycle through light, dark, auto
 (() => {
   const html = document.documentElement;
-  const prefersDarkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
   const sunIcon = document.getElementById("sun-icon");
   const moonIcon = document.getElementById("moon-icon");
   const systemIcon = document.getElementById("system-icon");
   const themeToggle = document.getElementById("theme-toggle");
+  const prefersDarkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
   let currentTheme: string | null = localStorage.getItem("theme") || null;
 
