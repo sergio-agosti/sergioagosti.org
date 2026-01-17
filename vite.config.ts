@@ -8,7 +8,7 @@ import pug from "pug";
 export default defineConfig({
   root: "src",
   build: {
-    outDir: "dist",
+    outDir: "../dist",
     emptyOutDir: true,
     cssCodeSplit: false,
     minify: "esbuild",
