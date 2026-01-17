@@ -1,6 +1,5 @@
 import { defineConfig, type PluginOption } from "vite";
 import tailwindcss from "@tailwindcss/vite";
-import { minify } from "html-minifier-terser";
 import webfontDownload from "vite-plugin-webfont-dl";
 import { readFileSync, existsSync } from "node:fs";
 import pug from "pug";
@@ -10,7 +9,6 @@ export default defineConfig({
   build: {
     outDir: "../dist",
     emptyOutDir: true,
-    cssCodeSplit: false,
     minify: "esbuild",
   },
   server: {
@@ -41,21 +39,24 @@ export default defineConfig({
       cache: true,
     }),
     {
-      name: "minify-html",
+      name: "inject-css",
       enforce: "post",
       apply: "build",
-      async transformIndexHtml(html: string): Promise<string> {
-        // Minify HTML
-        return await minify(html, {
-          collapseWhitespace: true,
-          removeComments: true,
-          removeRedundantAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          useShortDoctype: true,
-          minifyCSS: true,
-          minifyJS: true,
-        });
+      transformIndexHtml(html: string, ctx): string {
+        if (!ctx.bundle) return html;
+
+        // Find CSS file in bundle
+        const cssFile = Object.values(ctx.bundle).find(
+          (output) => output.type === "asset" && output.fileName.endsWith(".css")
+        );
+
+        if (cssFile && typeof cssFile.fileName === "string") {
+          const cssLink = `<link rel="stylesheet" href="./${cssFile.fileName}">`;
+          // Inject CSS link before closing head tag
+          html = html.replace("</head>", `  ${cssLink}\n</head>`);
+        }
+
+        return html;
       },
     },
   ] as PluginOption[],
