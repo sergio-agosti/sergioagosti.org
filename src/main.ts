@@ -1,14 +1,28 @@
 import './main.css';
 
+// Email obfuscation - decode and set email link
+(() => {
+  const emailLink = document.getElementById("email-link") as HTMLAnchorElement | null;
+
+  if (emailLink) {
+    emailLink.textContent = atob(emailLink.dataset.email || "");
+    emailLink.href = `mailto:${emailLink.textContent}`;
+  }
+})();
+
+// Theme toggle - cycle through light, dark, auto
 (() => {
   const html = document.documentElement;
   const prefersDarkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-  const prefersDark = prefersDarkMediaQuery.matches;
+  const sunIcon = document.getElementById("sun-icon");
+  const moonIcon = document.getElementById("moon-icon");
+  const systemIcon = document.getElementById("system-icon");
+  const themeToggle = document.getElementById("theme-toggle");
 
   let currentTheme: string | null = localStorage.getItem("theme") || null;
 
-  function applyTheme(theme: string | null): void {
-    switch (theme) {
+  function updateTheme(): void {
+    switch (currentTheme) {
       case "dark":
         html.classList.add("dark");
         break;
@@ -16,77 +30,53 @@ import './main.css';
         html.classList.remove("dark");
         break;
       default:
-        html.classList.toggle("dark", prefersDark);
+        html.classList.toggle("dark", prefersDarkMediaQuery.matches);
         break;
     }
   }
 
-  applyTheme(currentTheme);
+  function updateIcon(): void {
+    sunIcon?.classList.add("hidden");
+    moonIcon?.classList.add("hidden");
+    systemIcon?.classList.add("hidden");
 
-  document.addEventListener("DOMContentLoaded", () => {
-    // Email obfuscation - decode and set email link
-    (() => {
-      const emailLink = document.getElementById("email-link") as HTMLAnchorElement | null;
+    switch (currentTheme) {
+      case "light":
+        sunIcon?.classList.remove("hidden");
+        break;
+      case "dark":
+        moonIcon?.classList.remove("hidden");
+        break;
+      default:
+        systemIcon?.classList.remove("hidden");
+    }
+  }
 
-      if (emailLink) {
-        emailLink.textContent = atob(emailLink.dataset.email || "");
-        emailLink.href = `mailto:${emailLink.textContent}`;
-      }
-    })();
+  updateIcon();
 
-    // Theme toggle - cycle through light, dark, auto
-    (() => {
-      const sunIcon = document.getElementById("sun-icon");
-      const moonIcon = document.getElementById("moon-icon");
-      const systemIcon = document.getElementById("system-icon");
-      const themeToggle = document.getElementById("theme-toggle");
+  prefersDarkMediaQuery.addEventListener("change", (e: MediaQueryListEvent) => {
+    currentTheme = e.matches ? "dark" : "light";
+    localStorage.removeItem("theme");
+    updateTheme();
+    updateIcon();
+  });
 
-      if (!sunIcon || !moonIcon || !systemIcon || !themeToggle) return;
+  themeToggle?.addEventListener("click", () => {
+    // Cycle: light -> dark -> auto -> light
+    switch (currentTheme) {
+      case "light":
+        currentTheme = "dark";
+        break;
+      case "dark":
+        currentTheme = null;
+        break;
+      default:
+        currentTheme = "light";
+        break;
+    }
 
-      function updateIcon(): void {
-        sunIcon!.classList.add("hidden");
-        moonIcon!.classList.add("hidden");
-        systemIcon!.classList.add("hidden");
-
-        switch (currentTheme) {
-          case "light":
-            sunIcon!.classList.remove("hidden");
-            break;
-          case "dark":
-            moonIcon!.classList.remove("hidden");
-            break;
-          default:
-            systemIcon!.classList.remove("hidden");
-        }
-      }
-
-      updateIcon();
-
-      prefersDarkMediaQuery.addEventListener("change", (e: MediaQueryListEvent) => {
-        currentTheme = e.matches ? "dark" : "light";
-        localStorage.removeItem("theme");
-        applyTheme(currentTheme);
-        updateIcon();
-      });
-
-      themeToggle.addEventListener("click", () => {
-        // Cycle: light -> dark -> auto -> light
-        switch (currentTheme) {
-          case "light":
-            currentTheme = "dark";
-            break;
-          case "dark":
-            currentTheme = null;
-            break;
-          default:
-            currentTheme = "light";
-            break;
-        }
-
-        currentTheme ? localStorage.setItem("theme", currentTheme) : localStorage.removeItem("theme");
-        applyTheme(currentTheme);
-        updateIcon();
-      });
-    })();
+    currentTheme ? localStorage.setItem("theme", currentTheme) : localStorage.removeItem("theme");
+    updateTheme();
+    updateIcon();
   });
 })();
