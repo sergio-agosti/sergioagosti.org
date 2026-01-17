@@ -12,6 +12,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^22.19.7",
+    "@types/pug": "^2.0.10",
     "prettier": "^3.8.0",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "pug": "^3.0.3",
