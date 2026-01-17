@@ -32,7 +32,8 @@ export default defineConfig({
         return html;
       },
     },
-    webfontDownload(["https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap"], {
+    // webfontDownload(["https://fonts.googleapis.com/css2?family=IBM+Plex+Mono"], {
+    webfontDownload(["https://fonts.googleapis.com/css2?family=Noto+Sans+Mono"], {
       injectAsStyleTag: true,
       minifyCss: true,
       async: true,

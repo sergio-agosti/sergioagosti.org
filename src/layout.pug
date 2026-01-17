@@ -11,7 +11,7 @@ html(lang="en")
     script.
       document.documentElement.classList.toggle(
         "dark",
-        localStorage.getItem("theme") === "dark" || window.matchMedia("(prefers-color-scheme: dark)").matches
+        (localStorage.getItem("theme") === "dark") || (window.matchMedia("(prefers-color-scheme: dark)")).matches
       )
     script(type="module" src="./main.ts")
   body(class="min-h-svh place-content-center bg-gray-100 font-mono text-base text-pretty text-gray-900 transition dark:bg-gray-900 dark:text-gray-100")
