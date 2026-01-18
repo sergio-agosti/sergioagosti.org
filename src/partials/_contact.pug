@@ -1,0 +1,28 @@
+- var email = "contact@sergioagosti.org"
+- var parts = email.split("@")
+- var local = parts[0]
+- var domain = parts[1].split(".")
+- var domainName = domain[0]
+- var tld = domain[1]
+- var localReversed = local.split("").reverse().join("")
+- var domainReversed = domainName.split("").reverse().join("")
+- var tldReversed = tld.split("").reverse().join("")
+- var localEncoded = Buffer.from(localReversed).toString("base64")
+- var domainEncoded = Buffer.from(domainReversed).toString("base64")
+- var tldEncoded = Buffer.from(tldReversed).toString("base64")
+- var atCharCode = "@".charCodeAt(0)
+- var dotCharCode = ".".charCodeAt(0)
+a#contact-link(rel="me")
+  - for (var i = 0; i < email.length; i++)
+    | &nbsp;
+script.
+  ((contactLink) => {
+    const decode = (str) => atob(str).split("").reverse().join("")
+    const local = decode("#{localEncoded}")
+    const domain = decode("#{domainEncoded}")
+    const tld = decode("#{tldEncoded}")
+    const at = String.fromCharCode(#{atCharCode})
+    const dot = String.fromCharCode(#{dotCharCode})
+    contactLink.textContent = local + at + domain + dot + tld
+    contactLink.href = `mailto:${contactLink.textContent}`
+  })(document.getElementById("contact-link"))
