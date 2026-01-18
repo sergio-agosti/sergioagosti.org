@@ -1,82 +1,69 @@
 import './main.css';
 
-// Email obfuscation - decode and set email link
-(() => {
-  const emailLink = document.getElementById("email-link") as HTMLAnchorElement | null;
+const html = document.documentElement;
+const sunIcon = document.getElementById("sun-icon");
+const moonIcon = document.getElementById("moon-icon");
+const systemIcon = document.getElementById("system-icon");
+const themeToggle = document.getElementById("theme-toggle");
+const prefersDarkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-  if (emailLink) {
-    emailLink.textContent = atob(emailLink.dataset.email || "");
-    emailLink.href = `mailto:${emailLink.textContent}`;
+let currentTheme: string | null = localStorage.getItem("theme") || null;
+
+function updateTheme(): void {
+  switch (currentTheme) {
+    case "dark":
+      html.classList.add("dark");
+      break;
+    case "light":
+      html.classList.remove("dark");
+      break;
+    default:
+      html.classList.toggle("dark", prefersDarkMediaQuery.matches);
+      break;
   }
-})();
+}
 
-// Theme toggle - cycle through light, dark, auto
-(() => {
-  const html = document.documentElement;
-  const sunIcon = document.getElementById("sun-icon");
-  const moonIcon = document.getElementById("moon-icon");
-  const systemIcon = document.getElementById("system-icon");
-  const themeToggle = document.getElementById("theme-toggle");
-  const prefersDarkMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+function updateIcon(): void {
+  sunIcon?.classList.add("hidden");
+  moonIcon?.classList.add("hidden");
+  systemIcon?.classList.add("hidden");
 
-  let currentTheme: string | null = localStorage.getItem("theme") || null;
-
-  function updateTheme(): void {
-    switch (currentTheme) {
-      case "dark":
-        html.classList.add("dark");
-        break;
-      case "light":
-        html.classList.remove("dark");
-        break;
-      default:
-        html.classList.toggle("dark", prefersDarkMediaQuery.matches);
-        break;
-    }
+  switch (currentTheme) {
+    case "light":
+      sunIcon?.classList.remove("hidden");
+      break;
+    case "dark":
+      moonIcon?.classList.remove("hidden");
+      break;
+    default:
+      systemIcon?.classList.remove("hidden");
   }
+}
 
-  function updateIcon(): void {
-    sunIcon?.classList.add("hidden");
-    moonIcon?.classList.add("hidden");
-    systemIcon?.classList.add("hidden");
+updateIcon();
 
-    switch (currentTheme) {
-      case "light":
-        sunIcon?.classList.remove("hidden");
-        break;
-      case "dark":
-        moonIcon?.classList.remove("hidden");
-        break;
-      default:
-        systemIcon?.classList.remove("hidden");
-    }
-  }
-
+prefersDarkMediaQuery.addEventListener("change", (e: MediaQueryListEvent) => {
+  currentTheme = e.matches ? "dark" : "light";
+  localStorage.removeItem("theme");
+  updateTheme();
   updateIcon();
+});
 
-  prefersDarkMediaQuery.addEventListener("change", (e: MediaQueryListEvent) => {
-    currentTheme = e.matches ? "dark" : "light";
-    localStorage.removeItem("theme");
-    updateTheme();
-    updateIcon();
-  });
+themeToggle?.addEventListener("click", () => {
+  // Cycle: light -> dark -> auto -> light
+  switch (currentTheme) {
+    case "light":
+      currentTheme = "dark";
+      break;
+    case "dark":
+      currentTheme = null;
+      break;
+    default:
+      currentTheme = "light";
+      break;
+  }
 
-  themeToggle?.addEventListener("click", () => {
-    // Cycle: light -> dark -> auto -> light
-    switch (currentTheme) {
-      case "light":
-        currentTheme = "dark";
-        break;
-      case "dark":
-        currentTheme = null;
-        break;
-      default:
-        currentTheme = "light";
-        break;
-    }
-
-    currentTheme ? localStorage.setItem("theme", currentTheme) : localStorage.removeItem("theme");
-    updateTheme();
-    updateIcon();
-  });
-})();
+  currentTheme ? localStorage.setItem("theme", currentTheme) : localStorage.removeItem("theme");
+  updateTheme();
+  updateIcon();
+});

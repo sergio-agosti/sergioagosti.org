@@ -13,4 +13,9 @@ block content
       h2#contact-heading(class="sr-only") Contact
       p I'm available for projects and collaboration.
       address(class="not-italic")
-        a#email-link(data-email="bWVAc2VyZ2lvYWdvc3RpLm9yZw==" rel="me") &nbsp;
+        a#contact-link(rel="me") &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        script.
+          ((contactLink) => {
+            contactLink.textContent = atob("bWVAc2VyZ2lvYWdvc3RpLm9yZw==")
+            contactLink.href = `mailto:${contactLink.textContent}`
+          })(document.getElementById("contact-link"))
