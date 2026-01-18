@@ -1,3 +1,4 @@
+- var name = "Sergio Agosti"
 - var email = "contact@sergioagosti.org"
 - var parts = email.split("@")
 - var local = parts[0]
@@ -23,6 +24,7 @@ script.
     const tld = decode("#{tldEncoded}")
     const at = String.fromCharCode(#{atCharCode})
     const dot = String.fromCharCode(#{dotCharCode})
-    contactLink.textContent = local + at + domain + dot + tld
-    contactLink.href = `mailto:${contactLink.textContent}`
+    const email = local + at + domain + dot + tld
+    contactLink.textContent = email
+    contactLink.href = `mailto:"#{name}" <${email}>`
   })(document.getElementById("contact-link"))
