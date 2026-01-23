@@ -1,6 +1,5 @@
 import { defineConfig, type PluginOption } from "vite";
 import tailwindcss from "@tailwindcss/vite";
-import webfontDownload from "vite-plugin-webfont-dl";
 import { readFileSync, existsSync } from "node:fs";
 import pug from "pug";
 
@@ -32,13 +31,6 @@ export default defineConfig({
         return html;
       },
     },
-    // webfontDownload(["https://fonts.googleapis.com/css2?family=IBM+Plex+Mono"], {
-    webfontDownload(["https://fonts.googleapis.com/css2?family=Noto+Sans+Mono"], {
-      injectAsStyleTag: true,
-      minifyCss: true,
-      async: true,
-      cache: true,
-    }),
     {
       name: "inject-assets",
       enforce: "post",
