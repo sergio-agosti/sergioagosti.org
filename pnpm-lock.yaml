@@ -8,7 +8,7 @@ importers:
 
   .:
     devDependencies:
-      '@fontsource/noto-sans-mono':
+      '@fontsource-variable/noto-sans-mono':
         specifier: ^5.2.10
         version: 5.2.10
       '@tailwindcss/vite':
@@ -214,8 +214,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource/noto-sans-mono@5.2.10':
-    resolution: {integrity: sha512-YG3ev3Bc24UGd1x0THgtU3LG1j+sKahhDgo0vTpEfB0wkXD1+tGSq1fJD+QqnYLXjPhMRNe0ZKWoUi1MPH7Qdg==}
+  '@fontsource-variable/noto-sans-mono@5.2.10':
+    resolution: {integrity: sha512-N8w7TRt24aD17P4eV9GDNiV4M5FSbeZ91dfWPtlTi5EvH15KAyjGiC7rvXnG3VTo/nb6gQuIXNlTDgH3cz652g==}
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -992,7 +992,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.2':
     optional: true
 
-  '@fontsource/noto-sans-mono@5.2.10': {}
+  '@fontsource-variable/noto-sans-mono@5.2.10': {}
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:

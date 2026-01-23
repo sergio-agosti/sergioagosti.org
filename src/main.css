@@ -1,4 +1,4 @@
-@import "@fontsource/noto-sans-mono/400.css";
+@import "@fontsource-variable/noto-sans-mono";
 
 @layer theme, base, components, utilities;
 
@@ -8,7 +8,7 @@
 
 @theme {
   /* --font-mono: "IBM Plex Mono", monospace; */
-  --font-mono: "Noto Sans Mono", monospace;
+  --font-mono: "Noto Sans Mono Variable", monospace;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
