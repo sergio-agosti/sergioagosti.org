@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@fontsource/commit-mono": "^5.2.5",
+    "@prettier/plugin-pug": "^3.4.2",
     "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^22.19.7",
     "@types/pug": "^2.0.10",

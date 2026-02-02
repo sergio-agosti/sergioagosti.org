@@ -11,6 +11,9 @@ importers:
       '@fontsource/commit-mono':
         specifier: ^5.2.5
         version: 5.2.5
+      '@prettier/plugin-pug':
+        specifier: ^3.4.2
+        version: 3.4.2(prettier@3.8.1)
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.1.18(vite@7.3.1(@types/node@22.19.7)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.46.0))
@@ -25,7 +28,7 @@ importers:
         version: 3.8.1
       prettier-plugin-tailwindcss:
         specifier: ^0.7.2
-        version: 0.7.2(prettier@3.8.1)
+        version: 0.7.2(@prettier/plugin-pug@3.4.2(prettier@3.8.1))(prettier@3.8.1)
       pug:
         specifier: ^3.0.3
         version: 3.0.3
@@ -235,6 +238,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@prettier/plugin-pug@3.4.2':
+    resolution: {integrity: sha512-/VOVeIscKYlPpsZrjrRV+44ZftCEIJq9Z/zR8PtAz/EDv82TKscw3z+fhTVqRz68G1TqQ/5COMFUVfPwPBH90w==}
+    engines: {node: '>=20.0.0', npm: '>=10.0.0'}
+    peerDependencies:
+      prettier: ^3.0.0
 
   '@rollup/rollup-android-arm-eabi@4.57.1':
     resolution: {integrity: sha512-A6ehUVSiSaaliTxai040ZpZ2zTevHYbvu/lDoeAteHI8QnaosIzm4qwtezfRg1jOYaUmnzLX1AOD6Z+UJjtifg==}
@@ -1019,6 +1028,11 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  '@prettier/plugin-pug@3.4.2(prettier@3.8.1)':
+    dependencies:
+      prettier: 3.8.1
+      pug-lexer: 5.0.1
+
   '@rollup/rollup-android-arm-eabi@4.57.1':
     optional: true
 
@@ -1399,9 +1413,11 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier-plugin-tailwindcss@0.7.2(prettier@3.8.1):
+  prettier-plugin-tailwindcss@0.7.2(@prettier/plugin-pug@3.4.2(prettier@3.8.1))(prettier@3.8.1):
     dependencies:
       prettier: 3.8.1
+    optionalDependencies:
+      '@prettier/plugin-pug': 3.4.2(prettier@3.8.1)
 
   prettier@3.8.1: {}
 

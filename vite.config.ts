@@ -43,7 +43,7 @@ export default defineConfig({
 
         // Find CSS file in bundle
         const cssFile = Object.values(ctx.bundle).find(
-          (output) => output.type === "asset" && output.fileName.endsWith(".css")
+          (output) => output.type === "asset" && output.fileName.endsWith(".css"),
         );
 
         if (cssFile && typeof cssFile.fileName === "string") {
@@ -54,7 +54,7 @@ export default defineConfig({
 
         // Find JS file in bundle and replace .ts references
         const jsFile = Object.values(ctx.bundle).find(
-          (output) => output.type === "chunk" && output.fileName.endsWith(".js")
+          (output) => output.type === "chunk" && output.fileName.endsWith(".js"),
         );
 
         if (jsFile && typeof jsFile.fileName === "string") {
