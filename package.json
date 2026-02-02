@@ -10,7 +10,7 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "@fontsource-variable/noto-sans-mono": "^5.2.10",
+    "@fontsource/commit-mono": "^5.2.5",
     "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^22.19.7",
     "@types/pug": "^2.0.10",
