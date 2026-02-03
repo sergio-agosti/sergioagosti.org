@@ -10,10 +10,11 @@ html(lang="en")
     title Sergio Agosti - Open-source Web Developer
     link(rel="stylesheet", href="./main.css")
     script.
+      document.documentElement.classList.add("js");
       document.addEventListener("theme-change", (event) => {
-        const theme = event.detail.theme;
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        document.documentElement.classList.toggle("dark", theme === "dark" || (theme !== "light" && media.matches));
+        document.documentElement.classList.remove("dark", "light");
+        document.documentElement.classList.toggle("dark", event.detail.theme === "dark");
+        document.documentElement.classList.toggle("light", event.detail.theme === "light");
       });
       document.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: localStorage.theme } }));
   body(

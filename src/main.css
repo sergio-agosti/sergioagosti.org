@@ -5,10 +5,21 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 @theme {
-  --font-mono: "Commit Mono", monospace;
+  --font-mono: "Commit Mono", Menlo, Consolas, monospace;
 }
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant js (&:where(.js, .js *));
+
+@custom-variant dark {
+  &:where(.dark, .dark *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(:not(.light *)) {
+      @slot;
+    }
+  }
+}
 
 @utility container {
   @apply mx-auto max-w-2xl px-4;
