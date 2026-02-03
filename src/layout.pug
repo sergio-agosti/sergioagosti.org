@@ -13,9 +13,9 @@ html(lang="en")
       document.addEventListener("theme-change", (event) => {
         const theme = event.detail.theme;
         const media = window.matchMedia("(prefers-color-scheme: dark)");
-        document.documentElement.classList.toggle("dark", theme === "dark" || (theme === "system" && media.matches));
+        document.documentElement.classList.toggle("dark", theme === "dark" || (theme !== "light" && media.matches));
       });
-      document.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: localStorage.theme || "system" } }));
+      document.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: localStorage.theme } }));
   body(
     class="min-h-svh place-content-center bg-gray-100 font-mono text-base text-pretty text-gray-900 transition dark:bg-gray-900 dark:text-gray-100"
   )

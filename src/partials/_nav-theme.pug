@@ -1,7 +1,6 @@
 nav(aria-label="Theme preferences", class="group/theme-toggle fixed top-6 right-6 not-data-theme:hidden")
   button(
     class="flex rounded-md border-none bg-transparent p-2 text-gray-600 transition hover:bg-gray-200 hover:text-current dark:text-gray-400 dark:hover:bg-gray-800",
-    aria-label="Toggle theme",
     type="button"
   )
     svg(
@@ -10,6 +9,7 @@ nav(aria-label="Theme preferences", class="group/theme-toggle fixed top-6 right-
       stroke="currentColor",
       viewBox="0 0 24 24"
     )
+      title Theme: light. Activate to switch to dark.
       path(
         stroke-linecap="round",
         stroke-linejoin="round",
@@ -22,6 +22,7 @@ nav(aria-label="Theme preferences", class="group/theme-toggle fixed top-6 right-
       stroke="currentColor",
       viewBox="0 0 24 24"
     )
+      title Theme: dark. Activate to switch to system.
       path(
         stroke-linecap="round",
         stroke-linejoin="round",
@@ -29,23 +30,28 @@ nav(aria-label="Theme preferences", class="group/theme-toggle fixed top-6 right-
         d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
       )
     svg(
-      class="size-5 group-not-data-[theme=system]/theme-toggle:hidden",
+      class="size-5 group-data-[theme=dark]/theme-toggle:hidden group-data-[theme=light]/theme-toggle:hidden",
       fill="none",
       stroke="currentColor",
       viewBox="0 0 24 24"
     )
+      title Theme: system. Activate to switch to light.
       path(
         stroke-linecap="round",
         stroke-linejoin="round",
         stroke-width="2",
         d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
       )
+  p(aria-live="polite", role="status", class="sr-only")
   script.
     ((nav, themes) => {
-      nav.dataset.theme = themes.includes(localStorage.theme) ? localStorage.theme : themes[0];
+      const status = nav.querySelector("[role=status]");
+      nav.dataset.theme = themes.at(themes.indexOf(localStorage.theme));
       nav.querySelector("button").addEventListener("click", () => {
         nav.dataset.theme = themes[(themes.indexOf(nav.dataset.theme) + 1) % themes.length];
         nav.dataset.theme === "system" ? localStorage.removeItem("theme") : (localStorage.theme = nav.dataset.theme);
         document.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: nav.dataset.theme } }));
+        status.textContent = `Theme set to ${nav.dataset.theme}`;
+        setTimeout(() => (status.textContent = ""), 1000);
       });
-    })(document.currentScript.parentElement, ["system", "light", "dark"]);
+    })(document.currentScript.parentElement, ["light", "dark", "system"]);
