@@ -51,7 +51,8 @@ nav(aria-label="Theme preferences", class="group/theme-toggle fixed top-6 right-
         nav.dataset.theme = themes[(themes.indexOf(nav.dataset.theme) + 1) % themes.length];
         nav.dataset.theme === "system" ? localStorage.removeItem("theme") : (localStorage.theme = nav.dataset.theme);
         document.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: nav.dataset.theme } }));
-        status.textContent = `Theme set to ${nav.dataset.theme}`;
-        setTimeout(() => (status.textContent = ""), 1000);
+      });
+      document.addEventListener("theme-change", (event) => {
+        status.textContent = `Theme set to ${event.detail.theme}.`;
       });
     })(document.currentScript.parentElement, ["light", "dark", "system"]);
