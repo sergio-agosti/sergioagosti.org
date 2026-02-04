@@ -1,4 +1,4 @@
-extends _layout.pug
+extends @/templates/_layout.pug
 
 block content
   header(class="container my-8 space-y-2 sm:my-16")
@@ -12,5 +12,4 @@ block content
     section(aria-labelledby="contact-heading", class="space-y-4")
       h2#contact-heading(class="sr-only") Contact
       p I'm available for projects and collaboration.
-      address(class="not-italic")
-        include partials/_contact.pug
+      include @/components/_contact.pug

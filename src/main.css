@@ -1,14 +1,11 @@
 @layer theme, base, components, utilities;
 
-@import "@fontsource/commit-mono" layer(theme);
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);
+@import "@fontsource/commit-mono";
+@import "tailwindcss";
 
 @theme {
   --font-mono: "Commit Mono", Menlo, Consolas, monospace;
 }
-
-@custom-variant js (&:where(.js, .js *));
 
 @custom-variant dark {
   &:where(.dark, .dark *) {
@@ -26,9 +23,6 @@
 }
 
 @layer base {
-  * {
-    @apply m-0 box-border font-normal;
-  }
   :any-link {
     @apply text-teal-600 underline-offset-4 transition not-hover:decoration-current/50 dark:text-teal-400;
   }

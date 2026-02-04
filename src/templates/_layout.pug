@@ -8,9 +8,8 @@ html(lang="en")
       content="Sergio Agosti - Open-source web developer specializing in accessible, high-performance websites and web applications"
     )
     title Sergio Agosti - Open-source Web Developer
-    link(rel="stylesheet", href="./main.css")
+    link(rel="stylesheet", href="main.css")
     script.
-      document.documentElement.classList.add("js");
       document.addEventListener("theme-change", (event) => {
         document.documentElement.classList.remove("dark", "light");
         document.documentElement.classList.toggle("dark", event.detail.theme === "dark");
@@ -20,5 +19,5 @@ html(lang="en")
   body(
     class="min-h-svh place-content-center bg-gray-100 font-mono text-base text-pretty text-gray-900 transition dark:bg-gray-900 dark:text-gray-100"
   )
-    include partials/_nav-theme
+    include @/components/_nav-theme
     block content
