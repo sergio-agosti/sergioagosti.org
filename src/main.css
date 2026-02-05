@@ -1,5 +1,3 @@
-@layer theme, base, components, utilities;
-
 @import "@fontsource/commit-mono";
 @import "tailwindcss";
 
@@ -12,7 +10,7 @@
     @slot;
   }
   @media (prefers-color-scheme: dark) {
-    &:where(:not(.light *)) {
+    &:not(.light):not(.light *) {
       @slot;
     }
   }
