@@ -12,15 +12,15 @@ block content
     section(aria-labelledby="contact-heading", class="space-y-4")
       h2#contact-heading(class="sr-only") Contact
       p I'm available for projects and collaboration.
-        button(class="button", commandFor="contact-dialog", command="show-modal") Contact me
+        button(class="button", commandfor="contact-dialog", command="show-modal") Contact me
       dialog#contact-dialog(
-        class="m-auto w-lg bg-gray-100 text-inherit transition not-open:opacity-0 dark:bg-gray-900 starting:opacity-0",
+        class="m-auto w-lg rounded bg-gray-100 text-inherit transition not-open:opacity-0 dark:bg-gray-900 starting:opacity-0",
         class="backdrop:bg-black/50 backdrop:backdrop-blur-xs backdrop:transition not-open:backdrop:opacity-0 starting:backdrop:opacity-0"
       )
-        div(class="p-4")
+        div(class="p-4 sm:px-8 sm:py-6")
           form(method="dialog", class="flex justify-end")
             button(
-              class="flex rounded-md p-2 text-gray-600 transition hover:bg-gray-200 hover:text-current dark:text-gray-400 dark:hover:bg-gray-800"
+              class="flex rounded p-1 text-gray-600 transition hover:bg-gray-200 hover:text-current dark:text-gray-400 dark:hover:bg-gray-800"
             )
               svg(class="size-5 fill-none stroke-current", viewBox="0 0 24 24")
                 title Close
