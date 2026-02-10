@@ -7,7 +7,8 @@ form(action=CONTACT_FORM_ACTION, method="POST", class="grid grid-cols-1 gap-4")
       name="name",
       required,
       autocomplete="name",
-      class="bg-teal-300 px-4 py-2 text-gray-900 dark:bg-teal-100"
+      class="w-full bg-teal-300 px-4 py-2 text-gray-900 dark:bg-teal-100",
+      autofocus
     )
   label(class="grid gap-2") Email
     input(
@@ -15,8 +16,8 @@ form(action=CONTACT_FORM_ACTION, method="POST", class="grid grid-cols-1 gap-4")
       name="email",
       required,
       autocomplete="email",
-      class="bg-teal-300 px-4 py-2 text-gray-900 dark:bg-teal-100"
+      class="w-full bg-teal-300 px-4 py-2 text-gray-900 dark:bg-teal-100"
     )
   label(class="grid gap-2") Message
-    textarea(name="message", required, rows="6", class="bg-teal-300 px-4 py-2 text-gray-900 dark:bg-teal-100")
-  button(type="submit", class="justify-self-start bg-teal-500 px-4 py-2 text-gray-900") Contact me
+    textarea(name="message", required, rows="3", class="w-full bg-teal-300 px-4 py-2 text-gray-900 dark:bg-teal-100")
+  button(type="submit", class="justify-self-start bg-teal-400 px-4 py-2 text-gray-900") Send

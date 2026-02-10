@@ -25,7 +25,7 @@
 }
 
 @utility button {
-  @apply rounded border-teal-600/30 bg-teal-600/10 px-1.5 py-0.5 text-teal-600 transition not-disabled:hover:cursor-pointer not-disabled:hover:border-teal-600/50 not-disabled:hover:bg-teal-600/20 not-disabled:hover:text-teal-700 dark:border-teal-400/30 dark:bg-teal-400/10 dark:text-teal-400 dark:not-disabled:hover:border-teal-400/50 dark:not-disabled:hover:bg-teal-400/20 dark:not-disabled:hover:text-teal-300;
+  @apply rounded border-teal-600/30 bg-teal-600/10 px-1.25 text-teal-600 transition not-disabled:hover:cursor-pointer not-disabled:hover:border-teal-600/50 not-disabled:hover:bg-teal-600/20 not-disabled:hover:text-teal-700 disabled:cursor-not-allowed disabled:opacity-50 dark:border-teal-400/30 dark:bg-teal-400/10 dark:text-teal-400 dark:not-disabled:hover:border-teal-400/50 dark:not-disabled:hover:bg-teal-400/20 dark:not-disabled:hover:text-teal-300;
 }
 
 @layer base {
@@ -33,7 +33,7 @@
     @apply link;
   }
   :focus-visible {
-    @apply shadow-[0_0_1rem_.2rem] ring-2 shadow-teal-400 ring-teal-400 ring-offset-2 ring-offset-white transition outline-none dark:ring-offset-teal-950;
+    @apply shadow-[0_0_1rem_.2rem] ring-2 shadow-teal-400 ring-teal-400 ring-offset-2 ring-offset-teal-100 transition outline-none dark:ring-offset-teal-950;
   }
   .font-mono {
     @apply [font-feature-settings:'ss03','ss04','ss05','cv01','cv02','cv04'];
