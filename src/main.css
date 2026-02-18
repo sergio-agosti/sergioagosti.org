@@ -3,6 +3,7 @@
 
 @theme {
   --font-mono: "Commit Mono", Menlo, Consolas, monospace;
+  --font-mono--features: "ss03", "ss04", "ss05", "cv01", "cv02", "cv06", "cv07", "cv08";
 }
 
 @custom-variant dark {
@@ -36,6 +37,6 @@
     @apply shadow-[0_0_1rem_.2rem] ring-2 shadow-teal-400 ring-teal-400 ring-offset-2 ring-offset-teal-100 transition outline-none dark:ring-offset-teal-950;
   }
   .font-mono {
-    @apply [font-feature-settings:'ss03','ss04','ss05','cv01','cv02','cv04'];
+    @apply [font-feature-settings:var(--font-mono--features)];
   }
 }
