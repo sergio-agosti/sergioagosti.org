@@ -17,7 +17,10 @@ html(lang="en")
       });
       document.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: localStorage.theme } }));
   body(
-    class="min-h-svh place-content-center bg-gray-100 font-mono text-base leading-relaxed text-pretty text-gray-900 transition **:transition-discrete dark:bg-gray-900 dark:text-gray-100"
+    class="transition **:transition-discrete"
+    class="min-h-svh place-content-center"
+    class="font-mono text-base leading-relaxed text-pretty"
+    class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
   )
     include @/components/_navigation
     block content
