@@ -13,14 +13,18 @@
     "@fontsource/commit-mono": "^5.2.5",
     "@mish.dev/vite-convert-pug-in-html": "^2.0.0",
     "@prettier/plugin-pug": "^3.4.2",
-    "@tailwindcss/vite": "^4.1.18",
-    "@types/node": "^22.19.7",
+    "@tailwindcss/vite": "^4.2.4",
+    "@types/node": "^22.19.17",
     "@types/pug": "^2.0.10",
-    "prettier": "^3.8.1",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "pug": "^3.0.3",
-    "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3",
-    "vite": "^7.3.1"
+    "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "pug": "^3.0.4",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.11"
+  },
+  "engines": {
+    "node": "24",
+    "pnpm": "11"
   }
 }
