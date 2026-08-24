@@ -1,0 +1,74 @@
+extends @/templates/_layout.pug
+
+block meta
+  meta(
+    name="description",
+    content="CV of Sergio Agosti, a full-stack web developer with 20 years of experience building accessible websites and web applications."
+  )
+
+block title
+  title Sergio Agosti - CV - Full-stack Web Developer
+
+mixin experience(role, employer, dates, datetime)
+  div(class="space-y-1")
+    h3(class="font-semibold")
+      | #{ role } - #{ employer }
+    p(class="text-sm text-gray-600 dark:text-gray-400")= dates
+    block
+
+block content
+  header(class="container my-8 space-y-2 sm:my-16")
+    h1(class="-ml-1 text-4xl tracking-tighter text-teal-600 transition dark:text-teal-400") Curriculum Vitae
+    p(class="text-lg") #[a(href="/") Sergio Agosti] - Open-source web developer
+  main(class="container my-8 space-y-8 sm:my-16 sm:space-y-16")
+    section(aria-labelledby="profile-heading", class="space-y-4")
+      h2#profile-heading Profile
+      p Full-stack web developer with #[time(datetime="P20Y") 20 years] of experience building accessible, high-performance websites and web applications with open-source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture, quality and the bigger picture.
+    section(aria-labelledby="experience-heading", class="space-y-4")
+      h2#experience-heading Experience
+      div(class="space-y-6")
+        +experience("Full-stack Web Developer", "The Frameworks", "December 2011 – present")
+          p Build marketing websites, e-commerce storefronts and bespoke web applications for clients across a range of sectors, including several long-running engagements. I bring a strong understanding of design to full-stack work spanning front end, back end and deployment infrastructure; lately focused on AI-assisted development.
+        +experience("Front-end Developer", "AOL", "9-month contract, 2011")
+          p Developed front-end features for a high-traffic blog platform.
+        +experience("Web Developer", "Sognando Londra", "2009 – 2011")
+          p Built the agency's public website and a customer-facing system for selling travel, study and work packages to London, handling purchases and order management end to end.
+        +experience("Co-founder & Web Developer", "Omnidea", "2006 – 2009")
+          p Co-founded a small agency building bespoke cross-platform software, focused on web-based applications.
+    section(aria-labelledby="skills-heading", class="space-y-4")
+      h2#skills-heading Skills
+      dl(class="grid gap-x-8 gap-y-3 sm:grid-cols-[9rem_1fr]")
+        dt(class="font-semibold") Languages
+        dd TypeScript/JavaScript · PHP · HTML · CSS · SQL
+        dt(class="font-semibold") Data
+        dd MySQL · PostgreSQL · MongoDB · Redis
+        dt(class="font-semibold") Frameworks &amp; platforms
+        dd Laravel · Vue/Nuxt · React/Next.js · Astro · Solid.js · Shopify · Tailwind CSS
+        dt(class="font-semibold") Tooling &amp; infrastructure
+        dd Vite · Node.js · Bun · Linux/DevOps · Git · CI/CD · AI-assisted development
+    section(aria-labelledby="education-heading", class="space-y-4")
+      h2#education-heading Education &amp; training
+      p Bachelor's degree in Computer Science - University of Venice
+      p #[a(href="https://aihero.dev", rel="noopener") AI Hero] - AI-assisted development course by Matt Pocock
+    section(aria-labelledby="contact-heading", class="space-y-4")
+      h2#contact-heading Contact
+      p I'm available for projects and collaboration.
+        button(class="button", commandfor="contact-dialog", command="show-modal") Contact me
+      dialog#contact-dialog(
+        class="m-auto w-lg rounded bg-gray-100 text-inherit transition not-open:opacity-0 dark:bg-gray-900 starting:opacity-0",
+        class="backdrop:bg-black/50 backdrop:backdrop-blur-xs backdrop:transition not-open:backdrop:opacity-0 starting:backdrop:opacity-0"
+      )
+        div(class="p-4 sm:px-8 sm:py-6")
+          form(method="dialog", class="flex justify-end")
+            button(
+              class="flex rounded p-1 text-gray-600 transition hover:bg-gray-200 hover:text-current dark:text-gray-400 dark:hover:bg-gray-800"
+            )
+              svg(class="size-5 fill-none stroke-current", viewBox="0 0 24 24")
+                title Close
+                path(
+                  stroke-linecap="round",
+                  stroke-linejoin="round",
+                  stroke-width="2",
+                  d="M6 18L18 6M6 6l12 12"
+                )
+          include @/components/_contact.pug
