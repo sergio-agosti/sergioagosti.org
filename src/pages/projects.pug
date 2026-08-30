@@ -68,7 +68,7 @@ mixin project(project, options)
 block content
   header(class="container my-8 space-y-2 sm:my-16")
     h1(class="-ml-1 text-4xl tracking-tighter text-teal-600 transition dark:text-teal-400") Projects
-    p(class="text-lg") Selected work — own platforms, client builds and personal projects
+    p(class="text-lg") Selected work – own platforms, client builds and personal projects
   main(class="container my-8 space-y-8 sm:my-16 sm:space-y-16")
     section(aria-labelledby="featured-heading", class="space-y-4")
       h2#featured-heading(class="text-2xl font-semibold tracking-tight") Featured
@@ -77,7 +77,7 @@ block content
           +project(project, { featured: true })
     section(aria-labelledby="client-heading", class="space-y-4")
       h2#client-heading(class="text-2xl font-semibold tracking-tight") Client work
-      p(class="text-sm text-gray-600 dark:text-gray-400") Built while leading development at #[a(href="https://theframeworks.com", class="text-teal-600 underline decoration-teal-600/40 underline-offset-4 transition hover:decoration-current dark:text-teal-400") The Frameworks]. Most of this work is under NDA, so projects are described generically — specifics are available in person.
+      p(class="text-sm text-gray-600 dark:text-gray-400") Built while leading development at #[a(href="https://theframeworks.com", class="text-teal-600 underline decoration-teal-600/40 underline-offset-4 transition hover:decoration-current dark:text-teal-400") The Frameworks]. Most of this work is under NDA, so projects are described generically – specifics are available in person.
       div(class="space-y-8")
         each project in PROJECTS.client
           +project(project)

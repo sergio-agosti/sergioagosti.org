@@ -3,24 +3,24 @@
     {
       "name": "TheF CMS",
       "title": "TheF CMS",
-      "subtitle": "An agentic CMS behind our agency's own Astro website — own platform, built end to end",
-      "summary": "Editors describe changes in natural language and an agent edits the site's Astro pages — or edit content directly on a live preview. Each editing workspace lives on its own git branch with a disposable runtime; publishing squash-merges back onto the production branch and rebuilds the static site.",
+      "subtitle": "An agentic CMS behind our agency's own Astro website – own platform, built end to end",
+      "summary": "Editors describe changes in natural language and an agent edits the site's Astro pages – or edit content directly on a live preview. Each editing workspace lives on its own git branch with a disposable runtime; publishing squash-merges back onto the production branch and rebuilds the static site.",
       "highlights": [
         "The site itself is the CMS: agents edit real Astro content blocks, not a database.",
-        "Per-editor git-branch workspaces with disposable, auto-reaped runtimes — losing a runtime loses nothing, the branch is durable.",
+        "Per-editor git-branch workspaces with disposable, auto-reaped runtimes – losing a runtime loses nothing, the branch is durable.",
         "Editing surface built on SolidJS, orchestrated by a SolidJS control-plane dashboard."
       ],
       "stack": ["Astro", "SolidJS", "TypeScript", "TipTap", "WebSocket", "AI agent", "Git", "pnpm monorepo"],
-      "era": "2025 – present",
-      "cta": "In active development — demo on request"
+      "era": "2025–present",
+      "cta": "In active development – demo on request"
     },
     {
       "name": "enterprise-analytics-platform",
       "title": "Enterprise analytics platform",
-      "subtitle": "Built for a Gulf-based national AI company — client anonymised",
+      "subtitle": "Built for a Gulf-based national AI company – client anonymised",
       "summary": "A production platform for a national AI company, shipped against an extremely tight deadline using AI-assisted development: AI at the keyboard to move fast, with architecture, review and quality owned at senior level.",
       "highlights": [
-        "From kickoff to production on an aggressive deadline — the pace is visible in the commit graph, with the build concentrated in weeks.",
+        "From kickoff to production on an aggressive deadline – the pace is visible in the commit graph, with the build concentrated in weeks.",
         "A Radix UI component system, auth, validated forms with zod, and CMS-driven content on the Next.js app router."
       ],
       "stack": [
@@ -34,7 +34,7 @@
         "zod",
         "Tailwind CSS"
       ],
-      "era": "2025 – 2026",
+      "era": "2025–2026",
       "cta": null
     }
   ],
@@ -43,7 +43,7 @@
       "name": "kids-coding-programme",
       "title": "Kids Coding Programme",
       "subtitle": "A local web app for learning HTML and CSS",
-      "summary": "Kids (or anyone) create projects, edit pages in a real code editor with live preview, and can ask an AI tutor for help — everything runs locally.",
+      "summary": "Kids (or anyone) create projects, edit pages in a real code editor with live preview, and can ask an AI tutor for help – everything runs locally.",
       "stack": ["React", "Vite", "CodeMirror", "AI SDK", "Tailwind CSS"],
       "era": "2026",
       "links": []
@@ -61,18 +61,18 @@
       "name": "frontend-experiments",
       "title": "Frontend experiments & tools",
       "subtitle": "Modern CSS and vanilla-TypeScript tinkering",
-      "summary": "A collection of modern-CSS experiments with native browser APIs, plus small tools — including a side-by-side comparison of the monospace typefaces used on this site.",
+      "summary": "A collection of modern-CSS experiments with native browser APIs, plus small tools – including a side-by-side comparison of the monospace typefaces used on this site.",
       "stack": ["CSS", "TypeScript", "Vite"],
-      "era": "2025 – 2026",
+      "era": "2025–2026",
       "links": []
     },
     {
       "name": "frontflow",
       "title": "Frontflow",
-      "subtitle": "The component boilerplate behind years of client builds — legacy, but fondly kept",
+      "subtitle": "The component boilerplate behind years of client builds – legacy, but fondly kept",
       "summary": "The Pug + Tailwind module system used to compose marketing sites fast across client work. Retired, but the cleanest openable sample of how that work was structured.",
       "stack": ["Pug", "Tailwind CSS", "gulp"],
-      "era": "2019 – 2021",
+      "era": "2019–2021",
       "links": []
     }
   ],
@@ -81,8 +81,8 @@
       "name": "modular-homes",
       "title": "Modular-homes dealer network",
       "subtitle": "A national manufacturer's digital ecosystem",
-      "summary": "A family of dealer microsites sharing one headless data API, plus a custom CMS the client's editors use daily — built, shipped and maintained over a long engagement.",
-      "role": "Full-stack lead — architecture, build and evolution",
+      "summary": "A family of dealer microsites sharing one headless data API, plus a custom CMS the client's editors use daily – built, shipped and maintained over a long engagement.",
+      "role": "Full-stack lead – architecture, build and evolution",
       "stack": ["Laravel", "Blade", "Lumen", "AngularJS", "MySQL", "Docker"],
       "era": "Multi-year engagement",
       "links": []
@@ -104,14 +104,14 @@
       "summary": "Marketing sites on WordPress/Bedrock with a reusable Pug + Tailwind component system, delivered into each company's own editorial workflow.",
       "role": "Front-end build",
       "stack": ["WordPress", "Bedrock", "Laravel", "Pug", "Tailwind CSS"],
-      "era": "2022 – 2024",
+      "era": "2022–2024",
       "links": []
     },
     {
       "name": "campaigns-and-email",
       "title": "Campaign landing pages & HTML email programs",
       "subtitle": "High-traffic marketing builds",
-      "summary": "Campaign landing pages and HTML email programs for a global technology company — plus a product landing page for an intralogistics-systems vendor.",
+      "summary": "Campaign landing pages and HTML email programs for a global technology company – plus a product landing page for an intralogistics-systems vendor.",
       "role": "Front-end build",
       "stack": ["Nuxt", "Vue", "Pug", "Tailwind CSS", "HTML email"],
       "era": "Multiple engagements",
@@ -124,7 +124,7 @@
       "summary": "A bespoke Liquid + Tailwind theme with Vite-based tooling for a long-running online tea shop.",
       "role": "Lead build",
       "stack": ["Shopify", "Liquid", "Tailwind CSS", "Vite", "TypeScript"],
-      "era": "2023 – 2026",
+      "era": "2023–2026",
       "links": []
     },
     {
@@ -134,17 +134,17 @@
       "summary": "The museum's website, running on Statamic with a Tailwind front end.",
       "role": "Build",
       "stack": ["Statamic", "Laravel", "Tailwind CSS"],
-      "era": "2024 – present",
+      "era": "2024–present",
       "links": [{ "label": "estorickcollection.com", "url": "https://estorickcollection.com" }]
     },
     {
       "name": "maersk",
-      "title": "Maersk — Innovation Center",
+      "title": "Maersk – Innovation Center",
       "subtitle": "A global shipping company's innovation hub",
       "summary": "The innovation centre's website, powered by Laravel + Livewire with a Tailwind front end.",
       "role": "Build",
       "stack": ["Laravel", "Livewire", "Tailwind CSS"],
-      "era": "2023 – present",
+      "era": "2023–present",
       "links": [{ "label": "innovation.maersk.com", "url": "https://innovation.maersk.com" }]
     },
     {
@@ -154,7 +154,7 @@
       "summary": "An assessment platform with a React front end, serverless APIs on AWS and LinkedIn OAuth.",
       "role": "Build",
       "stack": ["React", "Vite", "AWS Lambda", "Tailwind CSS"],
-      "era": "2023 – 2024",
+      "era": "2023–2024",
       "links": []
     }
   ]

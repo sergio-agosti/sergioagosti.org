@@ -15,7 +15,7 @@ block title
 mixin experience(role, employer, dates, datetime)
   div(class="space-y-1")
     h3(class="font-semibold")
-      | #{ role } - #{ employer }
+      | #{ role } · #{ employer }
     p(class="text-sm text-gray-600 dark:text-gray-400")= dates
     block
 
@@ -29,13 +29,13 @@ block content
     section(aria-labelledby="experience-heading", class="space-y-4")
       h2#experience-heading Experience
       div(class="space-y-6")
-        +experience("Full-stack Web Developer", "The Frameworks", "December 2011 – present")
+        +experience("Full-stack Web Developer", "The Frameworks", "December 2011–present")
           p Build marketing websites, e-commerce storefronts and bespoke web applications for clients across a range of sectors, including several long-running engagements. I bring a strong understanding of design to full-stack work spanning front end, back end and deployment infrastructure, working effectively with distributed teams; lately focused on AI-assisted development.
         +experience("Front-end Developer", "AOL", "9-month contract, 2011")
           p Developed front-end features for a high-traffic blog platform.
-        +experience("Web Developer", "Sognando Londra", "2009 – 2011")
+        +experience("Web Developer", "Sognando Londra", "2009–2011")
           p Built the agency's public website and a customer-facing system for selling travel, study and work packages to London, handling purchases and order management end to end.
-        +experience("Co-founder & Web Developer", "Omnidea", "2006 – 2009")
+        +experience("Co-founder & Web Developer", "Omnidea", "2006–2009")
           p Co-founded a small agency building bespoke cross-platform software, focused on web-based applications.
     section(aria-labelledby="skills-heading", class="space-y-4")
       h2#skills-heading Skills
@@ -51,8 +51,8 @@ block content
       p(class="text-sm") Selected work: #[a(href="/projects") sergioagosti.org/projects]
     section(aria-labelledby="education-heading", class="space-y-4")
       h2#education-heading Education &amp; training
-      p Bachelor's degree in Computer Science - University of Venice
-      p #[a(href="https://aihero.dev", rel="noopener") AI Hero] - AI-assisted development course by Matt Pocock
+      p Bachelor's degree in Computer Science · University of Venice
+      p #[a(href="https://aihero.dev", rel="noopener") AI Hero] · AI-assisted development course by Matt Pocock
     section(aria-labelledby="additional-heading", class="space-y-4")
       h2#additional-heading Languages &amp; interests
       p #[strong Languages:] Italian (native) · English (fluent)
