@@ -4,13 +4,13 @@ import { viteConvertPugInHtml } from "@mish.dev/vite-convert-pug-in-html";
 import { readFileSync } from "fs";
 import { resolve } from "path";
 
-const PROJECTS = JSON.parse(readFileSync(resolve(__dirname, "src/data/projects.json"), "utf8"));
+const PROJECTS = JSON.parse(readFileSync(resolve(import.meta.dirname, "src/data/projects.json"), "utf8"));
 
 export default defineConfig(({ mode }) => ({
   root: "src",
   resolve: {
     alias: {
-      "@": resolve(__dirname, "src"),
+      "@": resolve(import.meta.dirname, "src"),
     },
   },
   build: {
