@@ -84,7 +84,7 @@
       "summary": "A family of dealer microsites sharing one headless data API, plus a custom CMS the client's editors use daily — built, shipped and maintained over a long engagement.",
       "role": "Full-stack lead — architecture, build and evolution",
       "stack": ["Laravel", "Blade", "Lumen", "AngularJS", "MySQL", "Docker"],
-      "era": "multi-year engagement",
+      "era": "Multi-year engagement",
       "links": []
     },
     {
@@ -94,7 +94,7 @@
       "summary": "Maturity assessments, risk dashboards with charting and i18n, a Next.js portal on a headless CMS, plus SSO and data-pipeline tooling across a multi-year engagement.",
       "role": "Full-stack developer across the suite",
       "stack": ["Laravel", "Vue", "Gatsby", "Next.js", "Payload CMS", "chart.js", "Livewire"],
-      "era": "multi-year engagement",
+      "era": "Multi-year engagement",
       "links": []
     },
     {
@@ -114,7 +114,7 @@
       "summary": "Campaign landing pages and HTML email programs for a global technology company — plus a product landing page for an intralogistics-systems vendor.",
       "role": "Front-end build",
       "stack": ["Nuxt", "Vue", "Pug", "Tailwind CSS", "HTML email"],
-      "era": "multiple engagements",
+      "era": "Multiple engagements",
       "links": []
     },
     {
