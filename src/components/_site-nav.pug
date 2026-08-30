@@ -1,0 +1,20 @@
+-
+  const navLinks = [
+    { href: "/cv", label: "CV", key: "cv" },
+    { href: "/projects", label: "Projects", key: "projects" },
+  ];
+
+mixin nav-link(href, label, key)
+  a(
+    href=href,
+    class="text-gray-600 transition hover:text-current aria-[current=page]:font-semibold aria-[current=page]:text-teal-600 dark:text-gray-400 dark:aria-[current=page]:text-teal-400",
+    aria-current=current === key ? "page" : false
+  )= label
+
+nav(aria-label="Site", class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm")
+  +nav-link("/", "Sergio Agosti", "index")
+  span(aria-hidden="true", class="text-gray-400 dark:text-gray-500") /
+  ul(class="flex items-center gap-x-3")
+    each link in navLinks
+      li
+        +nav-link(link.href, link.label, link.key)
