@@ -6,7 +6,7 @@ block vars
 block meta
   meta(
     name="description",
-    content="Projects by Sergio Agosti: an agentic CMS built with Astro and SolidJS, client work across insurance, manufacturing and e-commerce, plus personal and open-source projects."
+    content="Selected work by Sergio Agosti: an AI-driven publishing platform built end to end, client products for G42, Hiscox, UST, Maersk, IBM and others, plus personal projects."
   )
 
 block title
@@ -16,6 +16,14 @@ mixin tags(list)
   ul(class="flex flex-wrap gap-2")
     each tag in list
       li(class="rounded bg-teal-300 px-2 py-0.5 text-xs text-gray-900 dark:bg-teal-100")= tag
+
+//- Renders `backtick-delimited` spans in project copy as inline code.
+mixin prose(text)
+  each part, index in String(text).split("`")
+    if index % 2
+      code= part
+    else
+      = part
 
 mixin links(list)
   if list && list.length
@@ -47,28 +55,27 @@ mixin project(project, options)
         = project.title
     p(class="text-sm text-gray-600 dark:text-gray-400")= project.subtitle
     p= project.summary
-    if project.highlights
-      ul(class="list-disc space-y-1 pl-5")
-        each point in project.highlights
-          li= point
     if project.role
       p(class="text-sm text-gray-600 dark:text-gray-400")
         strong(class="font-semibold text-gray-900 dark:text-gray-100") Role:
         = " " + project.role
-    p(class="text-sm text-gray-600 dark:text-gray-400")= project.era
+    if project.highlights
+      div(class="space-y-1")
+        p(class="text-sm font-semibold") Notes
+        ul(class="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400")
+          each point in project.highlights
+            li: +prose(point)
+    p(class="text-sm text-gray-600 dark:text-gray-400")
+      = project.era
+      if project.note
+        = " · " + project.note
     +tags(project.stack)
-    if featured
-      p(class="text-sm font-semibold text-teal-600 dark:text-teal-400")
-        if project.cta
-          = project.cta
-        else
-          | NDA: details available in person
     +links(project.links)
 
 block content
   header(class="container my-8 space-y-2 sm:my-16")
     h1(class="-ml-1 text-4xl tracking-tighter text-teal-600 transition dark:text-teal-400") Projects
-    p(class="text-lg") Selected work – own platforms, client builds and personal projects
+    p(class="text-lg") Client products, websites and personal projects, with the stack behind each
   main(class="container my-8 space-y-8 sm:my-16 sm:space-y-16")
     section(aria-labelledby="featured-heading", class="space-y-4")
       h2#featured-heading(class="text-2xl font-semibold tracking-tight") Featured
@@ -77,7 +84,7 @@ block content
           +project(project, { featured: true })
     section(aria-labelledby="client-heading", class="space-y-4")
       h2#client-heading(class="text-2xl font-semibold tracking-tight") Client work
-      p(class="text-sm text-gray-600 dark:text-gray-400") Built while leading development at #[a(href="https://theframeworks.com", class="text-teal-600 underline decoration-teal-600/40 underline-offset-4 transition hover:decoration-current dark:text-teal-400") The Frameworks]. Most of this work is under NDA, so projects are described generically – specifics are available in person.
+      p(class="text-sm text-gray-600 dark:text-gray-400") Built at #[a(href="https://theframeworks.com", class="text-teal-600 underline decoration-teal-600/40 underline-offset-4 transition hover:decoration-current dark:text-teal-400") The Frameworks], most recent first. Some of this work is internal or has since been replaced, so it isn't all linkable.
       div(class="space-y-8")
         each project in PROJECTS.client
           +project(project)

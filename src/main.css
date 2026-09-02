@@ -39,4 +39,7 @@
   .font-mono {
     @apply [font-feature-settings:var(--font-mono--features)];
   }
+  code {
+    @apply rounded bg-teal-600/20 px-1.25 text-gray-900 dark:bg-teal-400/20 dark:text-gray-100;
+  }
 }
