@@ -25,7 +25,7 @@ block content
   main(class="container my-8 space-y-8 sm:my-16 sm:space-y-16")
     section(aria-labelledby="profile-heading", class="space-y-4")
       h2#profile-heading Profile
-      p Full-stack web developer with #[time(datetime="P20Y") 20 years] of experience building accessible, high-performance websites and web applications with open-source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture, quality and the bigger picture.
+      p Full-stack web developer with #[time(datetime="P20Y") 20 years] of experience building accessible, high-performance websites and web applications with open-source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture and quality.
     section(aria-labelledby="experience-heading", class="space-y-4")
       h2#experience-heading Experience
       div(class="space-y-6")
@@ -34,7 +34,7 @@ block content
         +experience("Front-end Developer", "AOL", "9-month contract, 2011")
           p Developed front-end features for a high-traffic blog platform.
         +experience("Web Developer", "Sognando Londra", "2009–2011")
-          p Built the agency's public website and a customer-facing system for selling travel, study and work packages to London, handling purchases and order management end to end.
+          p Maintained the agency's public website and built a customer-facing system for selling travel, study and work packages to London, handling purchases and order management end to end.
         +experience("Co-founder & Web Developer", "Omnidea", "2006–2009")
           p Co-founded a small agency building bespoke cross-platform software, focused on web-based applications.
     section(aria-labelledby="skills-heading", class="space-y-4")
@@ -57,25 +57,4 @@ block content
       h2#additional-heading Languages &amp; interests
       p #[strong Languages:] Italian (native) · English (fluent)
       p #[strong Karate:] Black belt, with over 20 years of practice
-    section(aria-labelledby="contact-heading", class="space-y-4")
-      h2#contact-heading Contact
-      p I'm available for projects and collaboration.
-        button(class="button", commandfor="contact-dialog", command="show-modal") Contact me
-      dialog#contact-dialog(
-        class="m-auto w-lg rounded bg-gray-100 text-inherit transition not-open:opacity-0 dark:bg-gray-900 starting:opacity-0",
-        class="backdrop:bg-black/50 backdrop:backdrop-blur-xs backdrop:transition not-open:backdrop:opacity-0 starting:backdrop:opacity-0"
-      )
-        div(class="p-4 sm:px-8 sm:py-6")
-          form(method="dialog", class="flex justify-end")
-            button(
-              class="flex rounded p-1 text-gray-600 transition hover:bg-gray-200 hover:text-current dark:text-gray-400 dark:hover:bg-gray-800"
-            )
-              svg(class="size-5 fill-none stroke-current", viewBox="0 0 24 24")
-                title Close
-                path(
-                  stroke-linecap="round",
-                  stroke-linejoin="round",
-                  stroke-width="2",
-                  d="M6 18L18 6M6 6l12 12"
-                )
-          include @/components/_contact.pug
+    include @/components/_contact-cta.pug

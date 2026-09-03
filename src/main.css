@@ -25,6 +25,15 @@
   @apply text-teal-600 underline underline-offset-4 transition not-hover:decoration-current/50 not-disabled:hover:cursor-pointer dark:text-teal-400;
 }
 
+@utility glow {
+  @apply shadow-[0_0_1.5rem_-0.25rem] shadow-teal-600/30 dark:shadow-teal-400/25;
+}
+
+/* Pair with a border-width utility, so bars can glow from one edge only. */
+@utility glow-border {
+  @apply border-teal-600/40 dark:border-teal-400/40;
+}
+
 @utility button {
   @apply rounded border-teal-600/30 bg-teal-600/10 px-1.25 text-teal-600 transition not-disabled:hover:cursor-pointer not-disabled:hover:border-teal-600/50 not-disabled:hover:bg-teal-600/20 not-disabled:hover:text-teal-700 disabled:cursor-not-allowed disabled:opacity-50 dark:border-teal-400/30 dark:bg-teal-400/10 dark:text-teal-400 dark:not-disabled:hover:border-teal-400/50 dark:not-disabled:hover:bg-teal-400/20 dark:not-disabled:hover:text-teal-300;
 }

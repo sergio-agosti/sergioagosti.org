@@ -10,27 +10,6 @@ block content
   main(class="container my-8 space-y-8 sm:my-16 sm:space-y-16")
     section(aria-labelledby="about-heading", class="space-y-4")
       h2#about-heading(class="sr-only") About
-      p I develop accessible, high-performance websites and web applications using open-source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture, quality and the bigger picture.
+      p I develop accessible, high-performance websites and web applications using open-source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture and quality.
       p With #[time(datetime="P20Y") 20 years] of experience, my work focuses on code quality, best practices and long-term maintainability.
-    section(aria-labelledby="contact-heading", class="space-y-4")
-      h2#contact-heading(class="sr-only") Contact
-      p I'm available for projects and collaboration.
-        button(class="button", commandfor="contact-dialog", command="show-modal") Contact me
-      dialog#contact-dialog(
-        class="m-auto w-lg rounded bg-gray-100 text-inherit transition not-open:opacity-0 dark:bg-gray-900 starting:opacity-0",
-        class="backdrop:bg-black/50 backdrop:backdrop-blur-xs backdrop:transition not-open:backdrop:opacity-0 starting:backdrop:opacity-0"
-      )
-        div(class="p-4 sm:px-8 sm:py-6")
-          form(method="dialog", class="flex justify-end")
-            button(
-              class="flex rounded p-1 text-gray-600 transition hover:bg-gray-200 hover:text-current dark:text-gray-400 dark:hover:bg-gray-800"
-            )
-              svg(class="size-5 fill-none stroke-current", viewBox="0 0 24 24")
-                title Close
-                path(
-                  stroke-linecap="round",
-                  stroke-linejoin="round",
-                  stroke-width="2",
-                  d="M6 18L18 6M6 6l12 12"
-                )
-          include @/components/_contact.pug
+    include @/components/_contact-cta.pug
