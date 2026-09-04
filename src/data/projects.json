@@ -18,11 +18,8 @@
         "SolidJS",
         "TypeScript",
         "Tailwind CSS",
-        "WebSocket",
-        "Coding agent",
         "Node.js",
         "Docker",
-        "Git",
         "Monorepo"
       ],
       "era": "2026–present",
@@ -56,7 +53,7 @@
         "Mongoose",
         "NextAuth",
         "Zod",
-        "AWS S3"
+        "AWS"
       ],
       "era": "2025–2026",
       "links": []
@@ -75,7 +72,7 @@
         "The full site is statically generated per locale from the API's own locale list, with content-security-policy nonces injected at the web-server layer.",
         "Respondents verify their email with a throttled PIN before results are released."
       ],
-      "stack": ["Laravel", "PHP", "Nuxt", "Vue", "Web Components", "Pug", "Tailwind CSS", "MySQL"],
+      "stack": ["Laravel", "PHP", "Nuxt", "Vue", "Web Components", "Pug", "Tailwind CSS", "PostgreSQL"],
       "era": "2021–2026",
       "links": []
     },
@@ -122,7 +119,7 @@
         "React",
         "Vite",
         "Tailwind CSS",
-        "Firebase Cloud Functions",
+        "Firebase",
         "Firestore",
         "OpenAI",
         "LinkedIn OAuth",
@@ -151,10 +148,7 @@
         "Payload CMS",
         "PostgreSQL",
         "NextAuth",
-        "Microsoft Entra ID",
         "Tailwind CSS",
-        "Azure Blob Storage",
-        "Playwright",
         "Docker"
       ],
       "era": "2025–2026",
@@ -187,7 +181,7 @@
         "A people content type with country, expertise and job-role taxonomies, and a restricted editor role for the team who maintain it.",
         "Full-page caching at the web-server layer, with sitemap-driven cache warming after each publish."
       ],
-      "stack": ["WordPress", "Bedrock", "Roots Sage", "Blade", "PHP", "Tailwind CSS", "Gutenberg", "nginx"],
+      "stack": ["WordPress", "Bedrock", "Roots Sage", "Blade", "PHP", "Tailwind CSS", "Gutenberg"],
       "era": "2024–2026",
       "links": []
     },
@@ -245,7 +239,7 @@
         "The CMS uploads media straight from the browser to object storage, with cropping, galleries, and a field builder for each site's enquiry forms.",
         "Location search maps a visitor's postcode or IP address to nearby retailers and communities, and enquiries route to whichever CRM a given brand used."
       ],
-      "stack": ["Laravel", "Blade", "MongoDB", "AngularJS", "Gulp", "Cloudinary", "Redis", "AWS S3"],
+      "stack": ["Laravel", "Blade", "MongoDB", "AngularJS", "Gulp", "Cloudinary", "Redis", "AWS"],
       "era": "2015–2024",
       "links": []
     },
@@ -258,7 +252,7 @@
       "highlights": [
         "Built from Pug templates into static pages, with a build step that also emits each module as a standalone HTML file and syncs the output to a separate delivery repository for the client's integration."
       ],
-      "stack": ["Pug", "Tailwind CSS", "Alpine.js", "Gulp", "Sharp"],
+      "stack": ["Pug", "Tailwind CSS", "Alpine.js", "Gulp"],
       "era": "2022–2023",
       "links": []
     },
@@ -272,7 +266,7 @@
         "Built from a design prototype into a Pug, Tailwind and Stylus component system, with each module emitted as its own HTML file so it could be mapped to an Umbraco document type independently of the others.",
         "Lottie animations and a responsive-image pipeline, served over local HTTPS in development to match the client's environment."
       ],
-      "stack": ["Pug", "Tailwind CSS", "Stylus", "Alpine.js", "Lottie", "Gulp", "Umbraco"],
+      "stack": ["Pug", "Tailwind CSS", "Stylus", "Alpine.js", "Lottie", "Gulp"],
       "era": "2021–2023",
       "links": []
     },
@@ -289,7 +283,7 @@
         "SVG icons are parsed and rewritten as template mixins with `aria-hidden` and `focusable` set and attributes passed through, so icons inline at the call site without a sprite sheet.",
         "A generate step renders every module as a standalone page alongside the site, producing a browsable catalogue for client handover and CMS integration."
       ],
-      "stack": ["Pug", "Tailwind CSS", "Alpine.js", "Gulp", "Sharp", "PostCSS", "AVIF", "WebP"],
+      "stack": ["Pug", "Tailwind CSS", "Alpine.js", "Gulp", "PostCSS"],
       "era": "2018–2022",
       "links": []
     },
@@ -304,7 +298,7 @@
         "The rebuild moved to the client's design-system web components alongside Pug and Tailwind, with build-time image optimisation.",
         "The first version predated widespread `:focus-within` support and shipped a polyfill and a PostCSS transform to keep keyboard navigation working."
       ],
-      "stack": ["Nuxt", "Vue", "Pug", "Tailwind CSS", "Nunjucks", "Sass", "Gulp", "Design-system web components"],
+      "stack": ["Nuxt", "Vue", "Pug", "Tailwind CSS", "Nunjucks", "Sass", "Gulp"],
       "era": "2018–2022",
       "links": []
     },
@@ -318,7 +312,7 @@
         "A Gulp pipeline with separate inline and embedded stylesheets, producing markup that renders consistently from Outlook 2007 through Gmail, iOS and Android.",
         "Each build tested against a fixed client matrix before delivery, with plain-text and Lotus Notes variants where the audience required them."
       ],
-      "stack": ["Gulp", "Swig", "Sass", "HTML email", "Litmus", "AWS S3"],
+      "stack": ["Gulp", "Swig", "Sass", "HTML email", "Litmus", "AWS"],
       "era": "2012–2022",
       "links": []
     },
@@ -360,7 +354,7 @@
       "highlights": [
         "Supabase for authentication and data, with an invite flow so several people share one plan."
       ],
-      "stack": ["React", "Vite", "TypeScript", "Tailwind CSS", "Base UI", "dnd-kit", "Supabase"],
+      "stack": ["React", "Vite", "TypeScript", "Tailwind CSS", "Base UI", "Supabase"],
       "era": "2026",
       "links": []
     },
