@@ -6,7 +6,7 @@ block vars
 block meta
   meta(
     name="description",
-    content="Selected work by Sergio Agosti: an AI-driven publishing platform built end to end, client products for G42, Hiscox, UST, Maersk, IBM and others, plus personal projects."
+    content="Selected work by Sergio Agosti: an AI-driven publishing platform built end to end, anonymised client products for insurers, technology and logistics companies, plus personal projects."
   )
 
 block title
@@ -84,7 +84,7 @@ block content
           +project(project, { featured: true })
     section(aria-labelledby="client-heading", class="space-y-4")
       h2#client-heading(class="text-2xl font-semibold tracking-tight") Client work
-      p(class="text-sm text-gray-600 dark:text-gray-400") Built at #[a(href="https://theframeworks.com", class="text-teal-600 underline decoration-teal-600/40 underline-offset-4 transition hover:decoration-current dark:text-teal-400") The Frameworks], most recent first. Some of this work is internal or has since been replaced, so it isn't all linkable.
+      p(class="text-sm text-gray-600 dark:text-gray-400") Built at #[a(href="https://theframeworks.com", class="text-teal-600 underline decoration-teal-600/40 underline-offset-4 transition hover:decoration-current dark:text-teal-400") The Frameworks], most recent first. Clients are anonymised, and some of this work is internal or has since been replaced, so it isn't linkable.
       div(class="space-y-8")
         each project in PROJECTS.client
           +project(project)
