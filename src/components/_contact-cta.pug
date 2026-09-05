@@ -1,12 +1,11 @@
 //- The pill sticks to the bottom of the viewport while the page scrolls, so the
-//- section is left transparent to clicks and only the pill itself takes them.
-section(aria-labelledby="contact-heading", class="pointer-events-none sticky bottom-2 z-10 -mx-2 sm:bottom-3")
-  h2#contact-heading(class="sr-only") Contact
+//- footer is left transparent to clicks and only the pill itself takes them.
+footer(class="container pointer-events-none sticky bottom-2")
   p(
-    class="pointer-events-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center",
+    class="pointer-events-auto -mx-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center",
     class="rounded-4xl border glow-border bg-gray-100/70 px-5 py-3.5 glow backdrop-blur dark:bg-gray-900/70"
   )
-    | I'm available for projects and collaboration.
+    | Available for work.
     button(class="button", commandfor="contact-dialog", command="show-modal") Contact me
 dialog#contact-dialog(
   class="m-auto w-lg rounded border glow-border bg-gray-100 text-inherit glow transition not-open:opacity-0 dark:bg-gray-900 starting:opacity-0",

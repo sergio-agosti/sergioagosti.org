@@ -3,13 +3,12 @@ extends @/templates/_layout.pug
 block vars
   - var current = "index";
 
+block page-header
+  h1(class="-ml-1 text-4xl tracking-tighter text-teal-600 transition dark:text-teal-400") Sergio Agosti
+  p(class="text-lg") Full-stack web developer
+
 block content
-  header(class="container my-8 space-y-2 sm:my-16")
-    h1(class="-ml-1 text-4xl tracking-tighter text-teal-600 transition dark:text-teal-400") Sergio Agosti
-    p(class="text-lg") Full-stack web developer
-  main(class="container my-8 space-y-8 sm:my-16 sm:space-y-16")
-    section(aria-labelledby="about-heading", class="space-y-4")
-      h2#about-heading(class="sr-only") About
-      p I develop accessible, high-performance websites and web applications using open-source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture and quality.
-      p With #[time(datetime="P20Y") 20 years] of experience, my work focuses on code quality, best practices and long-term maintainability.
-    include @/components/_contact-cta.pug
+  section(aria-labelledby="about-heading", class="space-y-4")
+    h2#about-heading(class="sr-only") About
+    p I develop accessible, high-performance websites and web applications using open-source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture and quality.
+    p With #[time(datetime="P20Y") 20 years] of experience, my work focuses on code quality, best practices and long-term maintainability.
