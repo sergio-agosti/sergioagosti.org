@@ -35,6 +35,11 @@ mixin links(list)
             class="text-teal-600 underline decoration-teal-600/40 underline-offset-4 transition hover:decoration-current dark:text-teal-400"
           )= link.label
 
+mixin highlights(list)
+  ul(class="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400")
+    each point in list
+      li: +prose(point)
+
 mixin project(project, options)
   -
     const featured = Boolean(options && options.featured)
@@ -60,11 +65,9 @@ mixin project(project, options)
         strong(class="font-semibold text-gray-900 dark:text-gray-100") Role:
         = " " + project.role
     if project.highlights
-      div(class="space-y-1")
-        p(class="text-sm font-semibold") Notes
-        ul(class="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400")
-          each point in project.highlights
-            li: +prose(point)
+      details(class="space-y-1")
+        summary(class="cursor-pointer text-sm font-semibold") Details
+        +highlights(project.highlights)
     p(class="text-sm text-gray-600 dark:text-gray-400")
       = project.era
       if project.note
