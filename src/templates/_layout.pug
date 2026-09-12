@@ -2,7 +2,7 @@ block vars
   - var current = "index";
 
 doctype html
-html(lang="en", class="page-" + current)
+html(lang="en", class="page-" + current, class="print:scheme-light", class=current === "cv" ? "print:text-[10pt]" : undefined)
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -28,10 +28,14 @@ html(lang="en", class="page-" + current)
     class="transition **:transition-discrete",
     class="grid min-h-svh grid-rows-[auto_1fr_auto] gap-8 sm:gap-16 print:min-h-0 print:!gap-4",
     class="font-mono text-base leading-relaxed tracking-tight text-pretty print:leading-tight",
-    class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+    class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100",
+    class="print:!bg-white print:!text-gray-900 print:[print-color-adjust:exact]"
   )
     include @/components/_topbar
-    main(class="container space-y-8 self-center sm:space-y-16 print:!space-y-5")
+    main(
+      class="container space-y-8 self-center sm:space-y-16 print:!space-y-5",
+      class=current === "cv" ? "print:max-w-none print:px-0" : undefined
+    )
       header(class="space-y-2")
         block page-header
       block content

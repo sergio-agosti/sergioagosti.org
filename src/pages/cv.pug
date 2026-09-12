@@ -6,6 +6,7 @@ extends @/templates/_layout.pug
 
 block vars
   - var current = "cv";
+  - var printHeading = "print:pb-[0.2rem] print:text-[0.8rem] print:font-semibold print:tracking-[0.08em] print:uppercase print:text-teal-700";
 
 block meta
   meta(
@@ -40,11 +41,12 @@ block page-header
       a(href="https://sergioagosti.org") sergioagosti.org
 
 block content
+  //- Print heading treatment is CV-only; other pages print as they read on screen.
   section(aria-labelledby="profile-heading", class="space-y-4 print:space-y-2")
-    h2#profile-heading Profile
+    h2#profile-heading(class=printHeading) Profile
     p Full‑stack web developer with #[time(datetime="P20Y") 20 years] of experience building accessible, high‑performance websites and web applications with open‑source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture and quality.
   section(aria-labelledby="experience-heading", class="space-y-4 print:space-y-2")
-    h2#experience-heading Experience
+    h2#experience-heading(class=printHeading) Experience
     div(class="space-y-6 print:space-y-4")
       +experience("Full‑stack Web Developer", "The Frameworks", "2011–present")
         p Build marketing websites, e‑commerce storefronts and bespoke web applications for clients across a range of sectors, including several long‑running engagements. I bring a strong understanding of design to full‑stack work spanning front end, back end and deployment infrastructure, working effectively with distributed teams; lately focused on AI‑assisted development.
@@ -55,7 +57,7 @@ block content
       +experience("Co‑founder & Web Developer", "Omnidea", "2006–2009")
         p Co‑founded a small agency building bespoke cross‑platform software, focused on web‑based applications.
   section(aria-labelledby="skills-heading", class="space-y-4 print:space-y-2")
-    h2#skills-heading Skills
+    h2#skills-heading(class=printHeading) Skills
     dl(class="grid gap-x-8 gap-y-3 sm:grid-cols-[9rem_1fr] print:grid-cols-1 print:gap-y-2")
       div(class="space-y-1 sm:contents print:block print:space-y-0.5")
         dt(class="font-semibold") Languages
@@ -71,10 +73,10 @@ block content
         dd Vite · Node.js · Bun · Linux/DevOps · Git · CI/CD · AI‑assisted development
     p(class="text-sm") Selected work: #[a(href="https://sergioagosti.org/projects") sergioagosti.org/projects]
   section(aria-labelledby="education-heading", class="space-y-4 print:space-y-2")
-    h2#education-heading Education &amp; training
+    h2#education-heading(class=printHeading) Education &amp; training
     p Bachelor's degree in Computer Science · University of Venice
     p #[a(href="https://aihero.dev", rel="noopener") AI Hero] · AI‑assisted development course by Matt Pocock
   section(aria-labelledby="additional-heading", class="space-y-4 print:space-y-2")
-    h2#additional-heading Languages &amp; interests
+    h2#additional-heading(class=printHeading) Languages &amp; interests
     p #[strong Languages:] Italian (native) · English (fluent)
     p #[strong Karate:] Black belt, with over 20 years of practice

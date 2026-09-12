@@ -35,7 +35,11 @@
 }
 
 @utility button {
-  @apply rounded border-teal-600/30 bg-teal-600/10 px-1.25 text-teal-600 transition not-disabled:hover:cursor-pointer not-disabled:hover:border-teal-600/50 not-disabled:hover:bg-teal-600/20 not-disabled:hover:text-teal-700 disabled:cursor-not-allowed disabled:opacity-50 dark:border-teal-400/30 dark:bg-teal-400/10 dark:text-teal-400 dark:not-disabled:hover:border-teal-400/50 dark:not-disabled:hover:bg-teal-400/20 dark:not-disabled:hover:text-teal-300;
+  @apply rounded border-teal-600/30 bg-teal-600/10 px-1.25 text-teal-600 transition;
+  @apply not-disabled:hover:cursor-pointer not-disabled:hover:border-teal-600/50 not-disabled:hover:bg-teal-600/20 not-disabled:hover:text-teal-700;
+  @apply disabled:cursor-not-allowed disabled:opacity-50;
+  @apply dark:border-teal-400/30 dark:bg-teal-400/10 dark:text-teal-400;
+  @apply dark:not-disabled:hover:border-teal-400/50 dark:not-disabled:hover:bg-teal-400/20 dark:not-disabled:hover:text-teal-300;
 }
 
 @layer base {
@@ -43,37 +47,6 @@
     @page {
       size: A4;
       margin: 16mm 18mm;
-    }
-
-    html {
-      color-scheme: light;
-    }
-
-    body {
-      background: white !important;
-      color: #101828 !important;
-      print-color-adjust: exact;
-      -webkit-print-color-adjust: exact;
-    }
-
-    /* The CV is shaped for paper; every other page prints as it reads on
-       screen, so its type scale, width and heading treatment stay off them. */
-    html.page-cv {
-      font-size: 10pt;
-    }
-
-    .page-cv .container {
-      max-width: none;
-      padding-inline: 0;
-    }
-
-    .page-cv h2 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-teal-700);
-      padding-bottom: 0.2rem;
     }
   }
 
@@ -83,10 +56,10 @@
   :focus-visible {
     @apply shadow-[0_0_1rem_.2rem] ring-2 shadow-teal-400 ring-teal-400 ring-offset-2 ring-offset-teal-100 transition outline-none dark:ring-offset-teal-950;
   }
-  .font-mono {
-    @apply [font-feature-settings:var(--font-mono--features)];
-  }
   code {
     @apply rounded bg-teal-600/20 px-1.25 text-gray-900 dark:bg-teal-400/20 dark:text-gray-100;
+  }
+  .font-mono {
+    @apply font-features-(--font-mono--features);
   }
 }
