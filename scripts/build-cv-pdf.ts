@@ -13,7 +13,7 @@
 import { spawn } from "node:child_process";
 import { once } from "node:events";
 import { existsSync } from "node:fs";
-import { copyFile, mkdtemp, readFile, rm, stat } from "node:fs/promises";
+import { mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { tmpdir } from "node:os";
 import { extname, join, relative, resolve } from "node:path";
@@ -150,7 +150,16 @@ server.close();
 await rm(profile, { recursive: true, force: true });
 
 // dist/ and src/public live on the repo's own volume, so copy rather than rename.
-await copyFile(scratchPdf, OUT);
+//
+// Skia stamps the current time into /CreationDate and /ModDate, which would make
+// two renders of an unchanged page differ byte for byte - leaving the pre-push
+// hook unable to tell a real change from a timestamp. Both values are a fixed
+// length, so they are rewritten in place: matching sizes keep the xref offsets
+// valid, and the output becomes reproducible.
+const STAMP = /D:\d{14}[+-]\d{2}'\d{2}'/g;
+const PINNED = "D:20260101000000+00'00'";
+const rendered = await readFile(scratchPdf);
+await writeFile(OUT, rendered.toString("latin1").replace(STAMP, PINNED), "latin1");
 await rm(scratch, { recursive: true, force: true });
 
 const { size } = await stat(OUT);
