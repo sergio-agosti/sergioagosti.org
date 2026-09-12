@@ -1,0 +1,43 @@
+#!/bin/sh
+# Regenerate the CV PDF before pushing, so the copy in the repository cannot
+# drift from the CV page it is printed from.
+#
+# A pre-push hook runs after the commit exists, so it cannot add the new PDF to
+# the push. Instead, if the render has changed, it stops the push and asks for a
+# commit that carries it.
+#
+# Enable once per clone with: git config core.hooksPath .githooks
+
+PDF="src/public/sergio-agosti-cv.pdf"
+
+if ! command -v pnpm >/dev/null 2>&1; then
+  echo "pre-push: pnpm not found - skipping the CV PDF check." >&2
+  exit 0
+fi
+
+if ! git ls-files --error-unmatch "$PDF" >/dev/null 2>&1; then
+  echo "pre-push: $PDF is not tracked, so nothing to compare against." >&2
+  echo "pre-push: the deployed build will not include it either - commit it to ship it." >&2
+  exit 0
+fi
+
+if ! pnpm --silent cv:pdf >/dev/null 2>&1; then
+  echo "pre-push: could not regenerate the CV PDF (no Chrome, or the build failed)." >&2
+  echo "pre-push: pushing anyway - run 'pnpm cv:pdf' by hand to see why." >&2
+  exit 0
+fi
+
+if ! git diff --quiet HEAD -- "$PDF"; then
+  cat >&2 <<'EOF'
+pre-push: the CV PDF has changed since it was last committed.
+
+Stopping the push so the deployed copy cannot go out stale. Commit the
+regenerated PDF and push again:
+
+  git add src/public/sergio-agosti-cv.pdf
+  git commit -m "docs(cv): regenerate PDF"
+EOF
+  exit 1
+fi
+
+exit 0
