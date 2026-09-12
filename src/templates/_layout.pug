@@ -25,7 +25,7 @@ html(lang="en-GB", class="print:scheme-light")
       });
       document.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: localStorage.theme } }));
   body(
-    class="transition **:transition-discrete",
+    class="transition **:transition-discrete print:m-[2cm]",
     class="grid min-h-svh grid-rows-[auto_1fr_auto] gap-8 sm:gap-16 print:min-h-0 print:gap-4",
     class="font-mono text-base tracking-tight text-pretty print:text-[9pt] print:leading-tight",
     class="not-print:bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100",
