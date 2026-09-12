@@ -69,16 +69,16 @@
   h1,
   h2,
   h3 {
-    @apply font-semibold tracking-tight leading-tight;
+    @apply font-semibold;
   }
   h1 {
     @apply [--type-power:3];
   }
   h2 {
-    @apply [--type-power:2];
+    @apply [--type-power:2] print:[--type-power:-1] print:uppercase print:text-teal-700;
   }
   h3 {
-    @apply [--type-power:1];
+    @apply [--type-power:1] print:[--type-power:0];
   }
   small,
   .small {
