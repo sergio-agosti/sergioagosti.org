@@ -25,7 +25,7 @@
 }
 
 @utility link {
-  @apply text-teal-700 not-focus-visible:underline underline-offset-4 transition not-hover:decoration-current/50 not-disabled:hover:cursor-pointer dark:text-teal-400;
+  @apply text-teal-700 underline-offset-4 transition not-hover:decoration-current/50 not-focus-visible:underline not-disabled:hover:cursor-pointer dark:text-teal-400;
 }
 
 @utility glow {
@@ -70,7 +70,7 @@
     @apply [--type-power:3];
   }
   h2 {
-    @apply [--type-power:2] print:[--type-power:-1] print:uppercase print:text-teal-700;
+    @apply [--type-power:2] print:text-teal-700 print:uppercase print:[--type-power:-1];
   }
   h3 {
     @apply [--type-power:1] print:[--type-power:0];

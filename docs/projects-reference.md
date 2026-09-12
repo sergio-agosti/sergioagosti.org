@@ -29,24 +29,24 @@ have to re-derive the stacks, and so the corrections below don't creep back in.
 The previous copy got these wrong. They are the things most likely to be reintroduced from
 memory, so they are recorded explicitly.
 
-| Claim previously on the page                                             | Actual                                                                                             |
-| ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| UST assessment ran "serverless APIs on AWS Lambda"                       | Firebase Cloud Functions v2 on Google Cloud, with Firestore and Firebase Hosting. No AWS anywhere. |
-| "Enterprise marketing sites for two global insurers"                     | Ardonagh Group and Price Forbes are insurance **brokers**, and Price Forbes is part of Ardonagh.   |
-| "A shared Pug and Tailwind component system reused across both insurers" | Ardonagh is Pug/Gulp/Tailwind static modules; Price Forbes is WordPress/Sage/Blade. Not shared.    |
-| Champion stack listed MySQL and Lumen                                    | MongoDB via `jenssegers/mongodb`, and Laravel 5.1 with the Dingo API package, not Lumen.           |
-| Champion described as a "dealer network" of sites                        | Brand sites; dealers/retailers are content **within** them. Count left generic on the page.        |
-| G42 was "a gated portal" with "an authenticated area behind it"          | The public narrative is not gated. NextAuth protects the in-app CMS and API routes only.           |
-| G42 stack listed "Headless CMS"                                          | A custom CMS in the same Next.js app over MongoDB, in a `(cms)` route group.                       |
-| CMS: "each editor works in a workspace on its own Git branch"            | Workspaces are per **slug** (`cms/ws/<slug>`); editors share one branch and one agent (ADR-0006).  |
-| CMS: "a shared asset library"                                            | Workspace-scoped. ADR-0004 explicitly rejects a shared object store; bytes live in Git.            |
-| Hiscox: "single sign-on across products built on different stacks"       | Not found in the repos surveyed. Each product has its own auth. Claim dropped.                     |
-| Hiscox stack listed Gatsby                                               | No trace of Gatsby in any of the seven Hiscox repos.                                               |
-| Hiscox `hci-pro` called a "client portal"                                | Internal tool for Hiscox staff.                                                                    |
-| Kids Coding Programme stack listed Vite                                  | Runs on **Bun**.                                                                                   |
-| Frontflow: "a module system for composing marketing sites"               | An agency front-end **boilerplate**. Era was also wrong (see its entry).                           |
-| IBM: "campaign landing pages"                                            | Three multi-page microsites across three eras, plus the email programme.                           |
-| Estorick era started 2024, "rebuilt on Statamic in 2025"                  | Agency repo is 2011-09 (`estorick-collection-web`). Statamic v2 live since 2016 and still receiving commits as of 2026-07. The 2025 Statamic 5 rebuild has not replaced it. |
+| Claim previously on the page                                             | Actual                                                                                                                                                                      |
+| ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UST assessment ran "serverless APIs on AWS Lambda"                       | Firebase Cloud Functions v2 on Google Cloud, with Firestore and Firebase Hosting. No AWS anywhere.                                                                          |
+| "Enterprise marketing sites for two global insurers"                     | Ardonagh Group and Price Forbes are insurance **brokers**, and Price Forbes is part of Ardonagh.                                                                            |
+| "A shared Pug and Tailwind component system reused across both insurers" | Ardonagh is Pug/Gulp/Tailwind static modules; Price Forbes is WordPress/Sage/Blade. Not shared.                                                                             |
+| Champion stack listed MySQL and Lumen                                    | MongoDB via `jenssegers/mongodb`, and Laravel 5.1 with the Dingo API package, not Lumen.                                                                                    |
+| Champion described as a "dealer network" of sites                        | Brand sites; dealers/retailers are content **within** them. Count left generic on the page.                                                                                 |
+| G42 was "a gated portal" with "an authenticated area behind it"          | The public narrative is not gated. NextAuth protects the in-app CMS and API routes only.                                                                                    |
+| G42 stack listed "Headless CMS"                                          | A custom CMS in the same Next.js app over MongoDB, in a `(cms)` route group.                                                                                                |
+| CMS: "each editor works in a workspace on its own Git branch"            | Workspaces are per **slug** (`cms/ws/<slug>`); editors share one branch and one agent (ADR-0006).                                                                           |
+| CMS: "a shared asset library"                                            | Workspace-scoped. ADR-0004 explicitly rejects a shared object store; bytes live in Git.                                                                                     |
+| Hiscox: "single sign-on across products built on different stacks"       | Not found in the repos surveyed. Each product has its own auth. Claim dropped.                                                                                              |
+| Hiscox stack listed Gatsby                                               | No trace of Gatsby in any of the seven Hiscox repos.                                                                                                                        |
+| Hiscox `hci-pro` called a "client portal"                                | Internal tool for Hiscox staff.                                                                                                                                             |
+| Kids Coding Programme stack listed Vite                                  | Runs on **Bun**.                                                                                                                                                            |
+| Frontflow: "a module system for composing marketing sites"               | An agency front-end **boilerplate**. Era was also wrong (see its entry).                                                                                                    |
+| IBM: "campaign landing pages"                                            | Three multi-page microsites across three eras, plus the email programme.                                                                                                    |
+| Estorick era started 2024, "rebuilt on Statamic in 2025"                 | Agency repo is 2011-09 (`estorick-collection-web`). Statamic v2 live since 2016 and still receiving commits as of 2026-07. The 2025 Statamic 5 rebuild has not replaced it. |
 
 ---
 
@@ -54,30 +54,30 @@ memory, so they are recorded explicitly.
 
 Several page entries cover more than one repository.
 
-| Page entry                   | Repositories                                                                          |
-| ---------------------------- | ------------------------------------------------------------------------------------- |
-| The Frameworks website CMS   | `thef-cms-web`                                                                        |
-| G42 Intelligence Grid        | `g42-intelligence-grid-web` (plus a `g42-intelligence-grid-cms` folder)               |
-| Hiscox Cyber Maturity Model  | `hiscox-hmm-api`, `hiscox-hmm-web`, `hiscox-hmm-web-components`                       |
-| Hiscox Cyber Insight PRO     | `hiscox-hci-pro`, absorbing `hiscox-cca-web` and `hiscox-cyber-dashboard-web`         |
-| Hiscox Cyber Fusion Portal   | `hiscox-cyber-fusion-portal`                                                          |
-| UST NavigatorAI              | `ust-ai-assessment-tool-api`, `-web`, plus the `-aws-api` / `-aws-web` variants       |
-| Canton Tea                   | `canton-tea-shopify-theme` (plus three older Canton Tea repos)                        |
-| Price Forbes RE              | `ardonagh-pfre-web`                                                                   |
+| Page entry                   | Repositories                                                                                                             |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| The Frameworks website CMS   | `thef-cms-web`                                                                                                           |
+| G42 Intelligence Grid        | `g42-intelligence-grid-web` (plus a `g42-intelligence-grid-cms` folder)                                                  |
+| Hiscox Cyber Maturity Model  | `hiscox-hmm-api`, `hiscox-hmm-web`, `hiscox-hmm-web-components`                                                          |
+| Hiscox Cyber Insight PRO     | `hiscox-hci-pro`, absorbing `hiscox-cca-web` and `hiscox-cyber-dashboard-web`                                            |
+| Hiscox Cyber Fusion Portal   | `hiscox-cyber-fusion-portal`                                                                                             |
+| UST NavigatorAI              | `ust-ai-assessment-tool-api`, `-web`, plus the `-aws-api` / `-aws-web` variants                                          |
+| Canton Tea                   | `canton-tea-shopify-theme` (plus three older Canton Tea repos)                                                           |
+| Price Forbes RE              | `ardonagh-pfre-web`                                                                                                      |
 | Estorick Collection          | `estorick-collection-web` (live), `estorick-collection-website` (v5 rebuild), `estorick-collection` (Astro/Strapi spike) |
-| Maersk Innovation Center     | `maersk-innovation-center-cms`, `maersk-innovation-center-website`                    |
-| Price Forbes                 | `price-forbes-website`                                                                |
-| Champion Homes brand network | `champion-hom-api`, `champion-hom-cms`, `champion-hom-web`, and ~25 siblings          |
-| Ardonagh Community Trust     | `ardonagh-act-website-front-end`, `ardonagh-act-website-modules`                      |
-| Ardonagh Group corporate     | `ardonagh-website-front-end`, `ardonagh-website-modules`                              |
-| Frontflow                    | `frontflow`                                                                           |
-| This is IBM                  | `ibm-of-things` (2018 build), `ibm-this-is-ibm` (2020 rebuild)                        |
-| HTML email programme         | `ibm-newsletters`                                                                     |
-| Dematic Micro Fulfilment     | `dematic-micro-fulfilment`                                                            |
-| Kids Coding Programme        | `kids-coding-programme`                                                               |
-| Family Menu Planner          | `family-menu-planner`                                                                 |
-| Frontend experiments         | `monospace-compare`, `frontend-playground`, `geist-mono-opentype-features`            |
-| _not on the page_            | `ibm-tealeaf` (2014–15 Middleman microsite, dropped as unrepresentative)              |
+| Maersk Innovation Center     | `maersk-innovation-center-cms`, `maersk-innovation-center-website`                                                       |
+| Price Forbes                 | `price-forbes-website`                                                                                                   |
+| Champion Homes brand network | `champion-hom-api`, `champion-hom-cms`, `champion-hom-web`, and ~25 siblings                                             |
+| Ardonagh Community Trust     | `ardonagh-act-website-front-end`, `ardonagh-act-website-modules`                                                         |
+| Ardonagh Group corporate     | `ardonagh-website-front-end`, `ardonagh-website-modules`                                                                 |
+| Frontflow                    | `frontflow`                                                                                                              |
+| This is IBM                  | `ibm-of-things` (2018 build), `ibm-this-is-ibm` (2020 rebuild)                                                           |
+| HTML email programme         | `ibm-newsletters`                                                                                                        |
+| Dematic Micro Fulfilment     | `dematic-micro-fulfilment`                                                                                               |
+| Kids Coding Programme        | `kids-coding-programme`                                                                                                  |
+| Family Menu Planner          | `family-menu-planner`                                                                                                    |
+| Frontend experiments         | `monospace-compare`, `frontend-playground`, `geist-mono-opentype-features`                                               |
+| _not on the page_            | `ibm-tealeaf` (2014–15 Middleman microsite, dropped as unrepresentative)                                                 |
 
 ---
 
@@ -351,11 +351,11 @@ agency repo starts 2011-09 (Matteo Pescarin). The previous page era of 2024–pr
 wrong — it treated the 2025 Statamic 5 rebuild as the product and ignored
 `estorick-collection-web`.
 
-| Repo                           | Role                                      | Git               |
-| ------------------------------ | ----------------------------------------- | ----------------- |
-| `estorick-collection-web`      | Live Statamic 2 site                      | 2011-09 → 2026-07 |
-| `estorick-collection-website`  | Statamic 5 rebuild, not live              | 2025-01 → 2026-02 |
-| `estorick-collection`          | Astro + Strapi spike, 8 commits, abandoned | 2026-02 → 2026-02 |
+| Repo                          | Role                                       | Git               |
+| ----------------------------- | ------------------------------------------ | ----------------- |
+| `estorick-collection-web`     | Live Statamic 2 site                       | 2011-09 → 2026-07 |
+| `estorick-collection-website` | Statamic 5 rebuild, not live               | 2025-01 → 2026-02 |
+| `estorick-collection`         | Astro + Strapi spike, 8 commits, abandoned | 2026-02 → 2026-02 |
 
 **Live (`estorick-collection-web`):** Statamic v2 on Laravel, Antlers templates, PHP 7,
 Node 10. Theme `estorickcollection` is Gulp 3, Sass, jQuery, normalize.css. Content is
@@ -652,28 +652,28 @@ the 31-repo list that was audited.
 
 Checked 2 September 2026 with a following-redirects HEAD request.
 
-| URL                                    | HTTP | Linked on page | Note                               |
-| -------------------------------------- | ---- | -------------- | ---------------------------------- |
-| `theframeworks.com`                    | 200  | yes            | employer; featured CMS publishes this site |
-| `intelligencegrid.g42.ai`              | 200  | no             | live; unlinked (clients anonymised) |
-| `mm.hiscoxcyberinsight.com`            | 200  | no             | live; unlinked (clients anonymised) |
-| `estorickcollection.com`               | 200  | no             | live; unlinked (clients anonymised) |
-| `innovation.maersk.com`                | 200  | no             | live; unlinked (clients anonymised) |
+| URL                                    | HTTP | Linked on page | Note                                               |
+| -------------------------------------- | ---- | -------------- | -------------------------------------------------- |
+| `theframeworks.com`                    | 200  | yes            | employer; featured CMS publishes this site         |
+| `intelligencegrid.g42.ai`              | 200  | no             | live; unlinked (clients anonymised)                |
+| `mm.hiscoxcyberinsight.com`            | 200  | no             | live; unlinked (clients anonymised)                |
+| `estorickcollection.com`               | 200  | no             | live; unlinked (clients anonymised)                |
+| `innovation.maersk.com`                | 200  | no             | live; unlinked (clients anonymised)                |
 | `championhomes.com`                    | 200  | no             | live; unlinked (clients anonymised); in transition |
-| `pro.hiscoxcyberinsight.com`           | 200  | no             | login wall; policy is public-only  |
-| `planner.sergioagosti.org`             | 200  | no             | unlinked by choice                 |
-| `ardonaghtrust.org`                    | 200  | no             | not confirmed as still ours        |
-| `ardonagh.com`                         | 200  | no             | not confirmed as still ours        |
-| `priceforbes.com`                      | 200  | no             | not confirmed as still ours        |
-| `priceforbesre.com`                    | 200  | no             | not confirmed as still ours        |
-| `cantonteaco.com`                      | 200  | no             | theme since replaced               |
-| `origintea.co.uk`                      | 200  | no             |                                    |
-| `skylinehomes.com`                     | 200  | no             | a Champion brand                   |
-| `ibm.com/marketing/uk-en/this-is-ibm/` | 200  | no             | may be a soft redirect; unverified |
-| `hiscoxgroup.com`                      | 200  | no             | corporate site, not the build      |
-| `dematic.com`                          | 200  | no             | corporate site, not the build      |
-| `pages.dematic.com`                    | dead | no             | the original host                  |
-| `ust.com`                              | 403  | no             | bot-blocked, not necessarily down  |
+| `pro.hiscoxcyberinsight.com`           | 200  | no             | login wall; policy is public-only                  |
+| `planner.sergioagosti.org`             | 200  | no             | unlinked by choice                                 |
+| `ardonaghtrust.org`                    | 200  | no             | not confirmed as still ours                        |
+| `ardonagh.com`                         | 200  | no             | not confirmed as still ours                        |
+| `priceforbes.com`                      | 200  | no             | not confirmed as still ours                        |
+| `priceforbesre.com`                    | 200  | no             | not confirmed as still ours                        |
+| `cantonteaco.com`                      | 200  | no             | theme since replaced                               |
+| `origintea.co.uk`                      | 200  | no             |                                                    |
+| `skylinehomes.com`                     | 200  | no             | a Champion brand                                   |
+| `ibm.com/marketing/uk-en/this-is-ibm/` | 200  | no             | may be a soft redirect; unverified                 |
+| `hiscoxgroup.com`                      | 200  | no             | corporate site, not the build                      |
+| `dematic.com`                          | 200  | no             | corporate site, not the build                      |
+| `pages.dematic.com`                    | dead | no             | the original host                                  |
+| `ust.com`                              | 403  | no             | bot-blocked, not necessarily down                  |
 
 No public URL was found anywhere in the code for the Hiscox Cyber Fusion Portal, Hiscox
 CyberClear Academy, or the UST NavigatorAI tool itself.

@@ -1,0 +1,12 @@
+#!/bin/sh
+# Format only the staged files (Prettier, including Tailwind class order)
+# and re-stage them so the commit matches what was formatted.
+#
+# Enable once per clone with: git config core.hooksPath .githooks
+
+if ! command -v pnpm >/dev/null 2>&1; then
+  echo "pre-commit: pnpm not found - skipping format." >&2
+  exit 0
+fi
+
+pnpm exec lint-staged
