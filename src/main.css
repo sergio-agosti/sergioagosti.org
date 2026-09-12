@@ -25,7 +25,7 @@
 }
 
 @utility link {
-  @apply text-teal-600 underline underline-offset-4 transition not-hover:decoration-current/50 not-disabled:hover:cursor-pointer dark:text-teal-400;
+  @apply text-teal-700 underline underline-offset-4 transition not-hover:decoration-current/50 not-disabled:hover:cursor-pointer dark:text-teal-400;
 }
 
 @utility glow {
@@ -38,8 +38,8 @@
 }
 
 @utility button {
-  @apply rounded border-teal-600/30 bg-teal-600/10 px-1.25 text-teal-600 transition;
-  @apply not-disabled:hover:cursor-pointer not-disabled:hover:border-teal-600/50 not-disabled:hover:bg-teal-600/20 not-disabled:hover:text-teal-700;
+  @apply rounded border-teal-600/30 bg-teal-600/10 px-1.25 text-teal-800 transition;
+  @apply not-disabled:hover:cursor-pointer not-disabled:hover:border-teal-600/50 not-disabled:hover:bg-teal-600/20 not-disabled:hover:text-teal-900;
   @apply disabled:cursor-not-allowed disabled:opacity-50;
   @apply dark:border-teal-400/30 dark:bg-teal-400/10 dark:text-teal-400;
   @apply dark:not-disabled:hover:border-teal-400/50 dark:not-disabled:hover:bg-teal-400/20 dark:not-disabled:hover:text-teal-300;
