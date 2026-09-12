@@ -1,10 +1,23 @@
 import { defineConfig, normalizePath } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import { viteConvertPugInHtml } from "@mish.dev/vite-convert-pug-in-html";
-import { existsSync, readdirSync, readFileSync } from "fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "fs";
 import { resolve } from "path";
 
 const DATA_DIR = resolve(import.meta.dirname, "src/data");
+const CV_PDF = resolve(import.meta.dirname, "src/public/sergio-agosti-cv.pdf");
+
+// "227 KB", "1.5 MB" - files are shipped to browsers, so 1024-based units.
+const formatBytes = (bytes: number) => {
+  const units = ["B", "KB", "MB", "GB"];
+  let value = bytes;
+  let unit = 0;
+  while (value >= 1024 && unit < units.length - 1) {
+    value /= 1024;
+    unit++;
+  }
+  return `${unit === 0 ? value : value < 10 ? value.toFixed(1) : Math.round(value)} ${units[unit]}`;
+};
 
 // Reload the browser whenever any JSON data file under src/data changes.
 const dataJsonReload = {
@@ -30,6 +43,14 @@ export default defineConfig(({ mode }) => {
   const locals = {
     CONTACT_FORM_ACTION: mode === "development" ? "/thank-you" : "https://api.web3forms.com/submit",
   };
+  // Size shown next to the CV download link. Read from the PDF itself so it
+  // cannot go stale when the CV is re-exported.
+  Object.defineProperty(locals, "CV_PDF_SIZE", {
+    enumerable: true,
+    get() {
+      return formatBytes(statSync(CV_PDF).size);
+    },
+  });
   if (existsSync(DATA_DIR)) {
     for (const file of readdirSync(DATA_DIR)) {
       if (!file.endsWith(".json")) continue;

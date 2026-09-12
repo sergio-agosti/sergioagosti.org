@@ -20,14 +20,14 @@ html(lang="en")
       document.dispatchEvent(new CustomEvent("theme-change", { detail: { theme: localStorage.theme } }));
   body(
     class="transition **:transition-discrete",
-    class="min-h-svh grid grid-rows-[auto_1fr_auto] gap-8 sm:gap-16",
-    class="font-mono text-base leading-relaxed tracking-tight text-pretty",
+    class="grid min-h-svh grid-rows-[auto_1fr_auto] gap-8 sm:gap-16 print:min-h-0 print:!gap-4",
+    class="font-mono text-base leading-relaxed tracking-tight text-pretty print:leading-tight",
     class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
   )
     block vars
       - var current = "index";
     include @/components/_topbar
-    main(class="container self-center space-y-8 sm:space-y-16")
+    main(class="container space-y-8 self-center sm:space-y-16 print:!space-y-5")
       header(class="space-y-2")
         block page-header
       block content

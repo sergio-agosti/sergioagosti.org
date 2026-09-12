@@ -1,5 +1,9 @@
 extends @/templates/_layout.pug
 
+//- Hyphens in the copy below are U+2011 (non-breaking), not U+002D. They look
+//- identical but do not break, so compounds like "full-stack" stay on one line
+//- when the page is printed. Use the same character for any new compound.
+
 block vars
   - var current = "cv";
 
@@ -14,47 +18,66 @@ block title
 
 mixin experience(role, employer, dates, datetime)
   div(class="space-y-1")
-    h3(class="font-semibold")
-      | #{ role } · #{ employer }
-    p(class="text-sm text-gray-600 dark:text-gray-400")= dates
+    div(class="print:flex print:items-baseline print:justify-between print:gap-6")
+      h3(class="font-semibold")
+        | #{ role } · #{ employer }
+      p(class="text-sm text-gray-600 dark:text-gray-400 print:shrink-0 print:text-right")= dates
     block
 
 block page-header
-  h1(class="-ml-1 text-4xl tracking-tighter text-teal-600 transition dark:text-teal-400") Curriculum Vitae
-  address(class="text-sm text-gray-600 not-italic dark:text-gray-400") Based in Devon, UK
+  div(class="space-y-2 print:hidden")
+    h1(class="-ml-1 text-4xl tracking-tighter text-teal-600 transition dark:text-teal-400") Curriculum Vitae
+    address(class="text-sm text-gray-600 not-italic dark:text-gray-400") Based in Devon, UK
+    p(class="text-sm")
+      a(href="/sergio-agosti-cv.pdf", download="Sergio Agosti CV.pdf") Download PDF (#{ CV_PDF_SIZE })
+  div(
+    class="hidden print:flex print:items-end print:justify-between print:gap-8 print:border-b print:border-teal-600 print:pb-3"
+  )
+    div(class="space-y-1")
+      h1(class="text-4xl tracking-tighter text-teal-600") Sergio Agosti
+      p Full‑stack Web Developer
+    address(class="text-sm text-gray-600 not-italic print:text-right")
+      | Devon, UK
+      br
+      a(href="https://sergioagosti.org") sergioagosti.org
 
 block content
-  section(aria-labelledby="profile-heading", class="space-y-4")
+  section(aria-labelledby="profile-heading", class="space-y-4 print:space-y-2")
     h2#profile-heading Profile
-    p Full-stack web developer with #[time(datetime="P20Y") 20 years] of experience building accessible, high-performance websites and web applications with open-source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture and quality.
-  section(aria-labelledby="experience-heading", class="space-y-4")
+    p Full‑stack web developer with #[time(datetime="P20Y") 20 years] of experience building accessible, high‑performance websites and web applications with open‑source technologies. I use AI strategically to accelerate development while retaining responsibility for architecture and quality.
+  section(aria-labelledby="experience-heading", class="space-y-4 print:space-y-2")
     h2#experience-heading Experience
-    div(class="space-y-6")
-      +experience("Full-stack Web Developer", "The Frameworks", "December 2011–present")
-        p Build marketing websites, e-commerce storefronts and bespoke web applications for clients across a range of sectors, including several long-running engagements. I bring a strong understanding of design to full-stack work spanning front end, back end and deployment infrastructure, working effectively with distributed teams; lately focused on AI-assisted development.
-      +experience("Front-end Developer", "AOL", "9-month contract, 2011")
-        p Developed front-end features for a high-traffic blog platform.
+    div(class="space-y-6 print:space-y-4")
+      +experience("Full‑stack Web Developer", "The Frameworks", "2011–present")
+        p Build marketing websites, e‑commerce storefronts and bespoke web applications for clients across a range of sectors, including several long‑running engagements. I bring a strong understanding of design to full‑stack work spanning front end, back end and deployment infrastructure, working effectively with distributed teams; lately focused on AI‑assisted development.
+      +experience("Front‑end Developer", "AOL", "9‑month contract, 2011")
+        p Developed front‑end features for a high‑traffic blog platform.
       +experience("Web Developer", "Sognando Londra", "2009–2011")
-        p Maintained the agency's public website and built a customer-facing system for selling travel, study and work packages to London, handling purchases and order management end to end.
-      +experience("Co-founder & Web Developer", "Omnidea", "2006–2009")
-        p Co-founded a small agency building bespoke cross-platform software, focused on web-based applications.
-  section(aria-labelledby="skills-heading", class="space-y-4")
+        p Maintained the agency's public website and built a customer‑facing system for selling travel, study and work packages to London, handling purchases and order management end to end.
+      +experience("Co‑founder & Web Developer", "Omnidea", "2006–2009")
+        p Co‑founded a small agency building bespoke cross‑platform software, focused on web‑based applications.
+  section(aria-labelledby="skills-heading", class="space-y-4 print:space-y-2")
     h2#skills-heading Skills
-    dl(class="grid gap-x-8 gap-y-3 sm:grid-cols-[9rem_1fr]")
-      dt(class="font-semibold") Languages
-      dd TypeScript/JavaScript · PHP · HTML · CSS · SQL
-      dt(class="font-semibold") Data
-      dd MySQL · PostgreSQL · MongoDB · Redis
-      dt(class="font-semibold") Frameworks &amp; platforms
-      dd Laravel · Vue/Nuxt · React/Next.js · Astro · Solid.js · Shopify · Tailwind CSS
-      dt(class="font-semibold") Tooling &amp; infrastructure
-      dd Vite · Node.js · Bun · Linux/DevOps · Git · CI/CD · AI-assisted development
-    p(class="text-sm") Selected work: #[a(href="/projects") sergioagosti.org/projects]
-  section(aria-labelledby="education-heading", class="space-y-4")
-    h2#education-heading Education &amp; training
-    p Bachelor's degree in Computer Science · University of Venice
-    p #[a(href="https://aihero.dev", rel="noopener") AI Hero] · AI-assisted development course by Matt Pocock
-  section(aria-labelledby="additional-heading", class="space-y-4")
-    h2#additional-heading Languages &amp; interests
-    p #[strong Languages:] Italian (native) · English (fluent)
-    p #[strong Karate:] Black belt, with over 20 years of practice
+    dl(class="grid gap-x-8 gap-y-3 sm:grid-cols-[9rem_1fr] print:grid-cols-1 print:gap-y-2")
+      div(class="contents print:block print:space-y-0.5")
+        dt(class="font-semibold") Languages
+        dd TypeScript/JavaScript · PHP · HTML · CSS · SQL
+      div(class="contents print:block print:space-y-0.5")
+        dt(class="font-semibold") Data
+        dd MySQL · PostgreSQL · MongoDB · Redis
+      div(class="contents print:block print:space-y-0.5")
+        dt(class="font-semibold") Frameworks &amp; platforms
+        dd Laravel · Vue/Nuxt · React/Next.js · Astro · Solid.js · Shopify · Tailwind CSS
+      div(class="contents print:block print:space-y-0.5")
+        dt(class="font-semibold") Tooling &amp; infrastructure
+        dd Vite · Node.js · Bun · Linux/DevOps · Git · CI/CD · AI‑assisted development
+    p(class="text-sm") Selected work: #[a(href="https://sergioagosti.org/projects") sergioagosti.org/projects]
+  div(class="contents print:block print:space-y-2")
+    section(aria-labelledby="education-heading", class="space-y-4 print:space-y-2")
+      h2#education-heading Education &amp; training
+      p Bachelor's degree in Computer Science · University of Venice
+      p #[a(href="https://aihero.dev", rel="noopener") AI Hero] · AI‑assisted development course by Matt Pocock
+    section(aria-labelledby="additional-heading", class="space-y-4 print:space-y-2")
+      h2#additional-heading Languages &amp; interests
+      p #[strong Languages:] Italian (native) · English (fluent)
+      p #[strong Karate:] Black belt, with over 20 years of practice

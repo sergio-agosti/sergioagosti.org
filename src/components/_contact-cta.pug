@@ -1,6 +1,6 @@
 //- The pill sticks to the bottom of the viewport while the page scrolls, so the
 //- footer is left transparent to clicks and only the pill itself takes them.
-footer(class="container pointer-events-none sticky bottom-2")
+footer(class="pointer-events-none sticky bottom-2 container print:hidden")
   p(
     class="pointer-events-auto -mx-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center",
     class="rounded-4xl border glow-border bg-gray-100/70 px-5 py-3 glow backdrop-blur dark:bg-gray-900/70"
