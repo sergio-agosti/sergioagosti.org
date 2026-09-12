@@ -3,7 +3,7 @@
 
 @theme {
   --font-mono: "Commit Mono", Menlo, Consolas, monospace;
-  --font-mono--features: "ss03", "ss04", "ss05", "cv01", "cv02", "cv06", "cv07", "cv08";
+  --font-mono--font-feature-settings: "ss03", "ss04", "ss05", "cv01", "cv02", "cv06", "cv07", "cv08";
 }
 
 @custom-variant dark {
@@ -47,8 +47,7 @@
 @layer base {
   @media print {
     @page {
-      size: A4;
-      margin: 16mm 18mm;
+      @apply m-[2cm];
     }
   }
 
@@ -60,8 +59,5 @@
   }
   code {
     @apply rounded bg-teal-600/20 px-1.25 text-gray-900 dark:bg-teal-400/20 dark:text-gray-100;
-  }
-  .font-mono {
-    @apply font-features-(--font-mono--features);
   }
 }
