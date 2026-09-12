@@ -4,6 +4,7 @@
 @theme {
   --font-mono: "Commit Mono", Menlo, Consolas, monospace;
   --font-mono--font-feature-settings: "ss03", "ss04", "ss05", "cv01", "cv02", "cv06", "cv07", "cv08";
+  --type-ratio: 1.25;
 }
 
 @custom-variant dark {
@@ -56,6 +57,32 @@
   }
   :focus-visible {
     @apply shadow-[0_0_1rem_.2rem] ring-2 shadow-teal-400 ring-teal-400 ring-offset-2 ring-offset-teal-100 transition outline-none dark:ring-offset-teal-950;
+  }
+
+  h1,
+  h2,
+  h3,
+  small,
+  .small {
+    @apply text-[calc(1em*pow(var(--type-ratio),var(--type-power)))];
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-semibold tracking-tight leading-tight;
+  }
+  h1 {
+    @apply [--type-power:3];
+  }
+  h2 {
+    @apply [--type-power:2];
+  }
+  h3 {
+    @apply [--type-power:1];
+  }
+  small,
+  .small {
+    @apply [--type-power:-1];
   }
   code {
     @apply rounded bg-teal-600/20 px-1.25 text-gray-900 dark:bg-teal-400/20 dark:text-gray-100;

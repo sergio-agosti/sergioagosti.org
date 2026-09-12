@@ -27,7 +27,7 @@ mixin prose(text)
 
 mixin links(list)
   if list && list.length
-    ul(class="flex flex-wrap gap-x-4 gap-y-1 text-sm")
+    ul(class="small flex flex-wrap gap-x-4 gap-y-1")
       each link in list
         li
           a(
@@ -36,7 +36,7 @@ mixin links(list)
           )= link.label
 
 mixin highlights(list)
-  ul(class="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400")
+  ul(class="mt-1 list-disc space-y-1 pl-5 text-gray-600 dark:text-gray-400")
     each point in list
       li: +prose(point)
 
@@ -51,48 +51,50 @@ mixin project(project, options)
     const articleClass = featured
       ? "grid gap-2 border-l-4 border-teal-400 pl-4 sm:pl-6"
       : "grid gap-2"
-    const titleClass = featured ? "text-xl font-semibold" : "font-semibold"
+    const titleClass = featured ? "text-xl" : undefined
   article(class=articleClass)
     h3(class=titleClass)
       if href
         a(href=href, class=linkClass)= project.title
       else
         = project.title
-    p(class="text-sm text-gray-600 dark:text-gray-400")= project.subtitle
+    p(class="small text-gray-600 dark:text-gray-400")= project.subtitle
     p= project.summary
     if project.role
-      p(class="text-sm text-gray-600 dark:text-gray-400")
+      p(class="small text-gray-600 dark:text-gray-400")
         strong(class="font-semibold text-gray-900 dark:text-gray-100") Role:
         = " " + project.role
     if project.highlights
-      details(class="space-y-1")
-        summary(class="cursor-pointer text-sm font-semibold") Details
+      details(class="small")
+        summary(class="cursor-pointer font-semibold") Details
         +highlights(project.highlights)
-    p(class="text-sm text-gray-600 dark:text-gray-400")
+    p(class="small text-gray-600 dark:text-gray-400")
       = project.era
       if project.note
-        = " · " + project.note
+        small= " · " + project.note
     +tags(project.stack)
     +links(project.links)
 
 block page-header
-  h1(class="-ml-1 text-4xl tracking-tighter text-teal-600 transition dark:text-teal-400") Projects
+  h1(class="-ml-1 text-teal-600 transition dark:text-teal-400") Projects
   p(class="text-lg") Client products, websites and personal projects
 
 block content
   section(aria-labelledby="featured-heading", class="space-y-4")
-    h2#featured-heading(class="text-2xl font-semibold tracking-tight") Featured
+    h2#featured-heading Featured
     div(class="space-y-8")
       each project in PROJECTS.featured
         +project(project, { featured: true })
   section(aria-labelledby="client-heading", class="space-y-4")
-    h2#client-heading(class="text-2xl font-semibold tracking-tight") Client work
-    p(class="text-sm text-gray-600 dark:text-gray-400") Built at #[a(href="https://theframeworks.com", class="text-teal-600 underline decoration-teal-600/40 underline-offset-4 transition hover:decoration-current dark:text-teal-400") The Frameworks], most recent first. Clients are anonymised, and some of this work is internal or has since been replaced, so it isn't linkable.
+    h2#client-heading Client work
+    p(class="small text-gray-600 dark:text-gray-400")
+      | Built at #[a(href="https://theframeworks.com", class="text-teal-600 underline decoration-teal-600/40 underline-offset-4 transition hover:decoration-current dark:text-teal-400") The Frameworks], most recent first.
+      small Clients are anonymised, and some of this work is internal or has since been replaced, so it isn't linkable.
     div(class="space-y-8")
       each project in PROJECTS.client
         +project(project)
   section(aria-labelledby="personal-heading", class="space-y-4")
-    h2#personal-heading(class="text-2xl font-semibold tracking-tight") Personal projects
+    h2#personal-heading Personal projects
     div(class="space-y-8")
       each project in PROJECTS.personal
         +project(project)

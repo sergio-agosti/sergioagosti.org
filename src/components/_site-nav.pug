@@ -11,7 +11,7 @@ mixin nav-link(href, label, key)
     aria-current=current === key ? "page" : false
   )= label
 
-nav(aria-label="Site", class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm")
+nav(aria-label="Site", class="small flex flex-wrap items-center gap-x-3 gap-y-1")
   +nav-link("/", "Sergio Agosti", "index")
   span(aria-hidden="true", class="text-gray-400 dark:text-gray-500") /
   ul(class="flex items-center gap-x-3")

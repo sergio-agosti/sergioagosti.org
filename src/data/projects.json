@@ -4,7 +4,7 @@
       "name": "thef-cms",
       "title": "The Frameworks website CMS",
       "subtitle": "A publishing platform for the agency's Astro website, built end to end",
-      "summary": "Editors describe a change in chat and a coding agent applies it to the site's source. Changes render in a live preview of the site before they are published.",
+      "summary": "Editors type the change they want in a chat. A coding agent updates the website; they review a live preview, then publish.",
       "role": "Product design, architecture and build, end to end",
       "highlights": [
         "Editing happens against a live preview: an Astro dev server proxied through the CMS bridge, with Vite hot-module reload passed through. The published site remains a static build.",
@@ -352,7 +352,7 @@
     },
     {
       "name": "frontend-experiments",
-      "title": "Frontend experiments & tools",
+      "title": "Frontend experiments and tools",
       "subtitle": "Modern CSS and vanilla-TypeScript tinkering",
       "summary": "Experiments with modern CSS and native browser APIs, plus small tools – including the side-by-side comparison of monospace typefaces used to choose the fonts on this site.",
       "role": "Ongoing personal practice",
