@@ -25,7 +25,7 @@
 }
 
 @utility link {
-  @apply rounded text-teal-700 underline underline-offset-4 transition not-hover:decoration-current/50 not-disabled:hover:cursor-pointer dark:text-teal-400;
+  @apply text-teal-700 not-focus-visible:underline underline-offset-4 transition not-hover:decoration-current/50 not-disabled:hover:cursor-pointer dark:text-teal-400;
 }
 
 @utility glow {
@@ -50,7 +50,7 @@
     @apply link;
   }
   :focus-visible {
-    @apply shadow-[0_0_1rem_.2rem] ring-2 shadow-teal-400 ring-teal-400 ring-offset-2 ring-offset-teal-100 transition outline-none dark:ring-offset-teal-950;
+    @apply rounded shadow-[0_0_1rem_.2rem] ring-2 shadow-teal-400 ring-teal-400 ring-offset-2 ring-offset-teal-100 transition outline-none dark:ring-offset-teal-950;
   }
 
   h1,
