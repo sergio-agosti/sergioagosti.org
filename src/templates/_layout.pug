@@ -1,5 +1,8 @@
+block vars
+  - var current = "index";
+
 doctype html
-html(lang="en")
+html(lang="en", class="page-" + current)
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -27,8 +30,6 @@ html(lang="en")
     class="font-mono text-base leading-relaxed tracking-tight text-pretty print:leading-tight",
     class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100"
   )
-    block vars
-      - var current = "index";
     include @/components/_topbar
     main(class="container space-y-8 self-center sm:space-y-16 print:!space-y-5")
       header(class="space-y-2")

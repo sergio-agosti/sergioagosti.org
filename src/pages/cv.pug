@@ -30,9 +30,7 @@ block page-header
     address(class="text-sm text-gray-600 not-italic dark:text-gray-400") Based in Devon, UK
     p(class="text-sm")
       a(href="/sergio-agosti-cv.pdf", download="Sergio Agosti CV.pdf") Download PDF (#{ CV_PDF_SIZE })
-  div(
-    class="hidden print:flex print:items-end print:justify-between print:gap-8 print:border-b print:border-teal-600 print:pb-3"
-  )
+  div(class="hidden print:flex print:items-end print:justify-between print:gap-8 print:pb-3")
     div(class="space-y-1")
       h1(class="text-4xl tracking-tighter text-teal-600") Sergio Agosti
       p Full‑stack Web Developer
@@ -59,25 +57,24 @@ block content
   section(aria-labelledby="skills-heading", class="space-y-4 print:space-y-2")
     h2#skills-heading Skills
     dl(class="grid gap-x-8 gap-y-3 sm:grid-cols-[9rem_1fr] print:grid-cols-1 print:gap-y-2")
-      div(class="contents print:block print:space-y-0.5")
+      div(class="space-y-1 sm:contents print:block print:space-y-0.5")
         dt(class="font-semibold") Languages
         dd TypeScript/JavaScript · PHP · HTML · CSS · SQL
-      div(class="contents print:block print:space-y-0.5")
+      div(class="space-y-1 sm:contents print:block print:space-y-0.5")
         dt(class="font-semibold") Data
         dd MySQL · PostgreSQL · MongoDB · Redis
-      div(class="contents print:block print:space-y-0.5")
+      div(class="space-y-1 sm:contents print:block print:space-y-0.5")
         dt(class="font-semibold") Frameworks &amp; platforms
         dd Laravel · Vue/Nuxt · React/Next.js · Astro · Solid.js · Shopify · Tailwind CSS
-      div(class="contents print:block print:space-y-0.5")
+      div(class="space-y-1 sm:contents print:block print:space-y-0.5")
         dt(class="font-semibold") Tooling &amp; infrastructure
         dd Vite · Node.js · Bun · Linux/DevOps · Git · CI/CD · AI‑assisted development
     p(class="text-sm") Selected work: #[a(href="https://sergioagosti.org/projects") sergioagosti.org/projects]
-  div(class="contents print:block print:space-y-2")
-    section(aria-labelledby="education-heading", class="space-y-4 print:space-y-2")
-      h2#education-heading Education &amp; training
-      p Bachelor's degree in Computer Science · University of Venice
-      p #[a(href="https://aihero.dev", rel="noopener") AI Hero] · AI‑assisted development course by Matt Pocock
-    section(aria-labelledby="additional-heading", class="space-y-4 print:space-y-2")
-      h2#additional-heading Languages &amp; interests
-      p #[strong Languages:] Italian (native) · English (fluent)
-      p #[strong Karate:] Black belt, with over 20 years of practice
+  section(aria-labelledby="education-heading", class="space-y-4 print:space-y-2")
+    h2#education-heading Education &amp; training
+    p Bachelor's degree in Computer Science · University of Venice
+    p #[a(href="https://aihero.dev", rel="noopener") AI Hero] · AI‑assisted development course by Matt Pocock
+  section(aria-labelledby="additional-heading", class="space-y-4 print:space-y-2")
+    h2#additional-heading Languages &amp; interests
+    p #[strong Languages:] Italian (native) · English (fluent)
+    p #[strong Karate:] Black belt, with over 20 years of practice

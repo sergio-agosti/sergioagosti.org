@@ -47,22 +47,6 @@
 
     html {
       color-scheme: light;
-      font-size: 10pt;
-    }
-
-    .container {
-      max-width: none;
-      padding-inline: 0;
-    }
-
-    h2 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-teal-700);
-      border-bottom: 1px solid var(--color-teal-600);
-      padding-bottom: 0.2rem;
     }
 
     body {
@@ -70,6 +54,26 @@
       color: #101828 !important;
       print-color-adjust: exact;
       -webkit-print-color-adjust: exact;
+    }
+
+    /* The CV is shaped for paper; every other page prints as it reads on
+       screen, so its type scale, width and heading treatment stay off them. */
+    html.page-cv {
+      font-size: 10pt;
+    }
+
+    .page-cv .container {
+      max-width: none;
+      padding-inline: 0;
+    }
+
+    .page-cv h2 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-teal-700);
+      padding-bottom: 0.2rem;
     }
   }
 
