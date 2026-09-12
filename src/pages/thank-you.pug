@@ -3,6 +3,15 @@ extends @/templates/_layout.pug
 block vars
   - var current = "thank-you";
 
+block meta
+  meta(
+    name="description",
+    content="Your message has been sent. I'll get back to you as soon as possible."
+  )
+
+block title
+  title Sergio Agosti - Thank you
+
 block page-header
   h1(class="text-teal-600 transition dark:text-teal-400") Thank you!
 

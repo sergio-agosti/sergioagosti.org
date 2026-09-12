@@ -46,6 +46,7 @@ memory, so they are recorded explicitly.
 | Kids Coding Programme stack listed Vite                                  | Runs on **Bun**.                                                                                   |
 | Frontflow: "a module system for composing marketing sites"               | An agency front-end **boilerplate**. Era was also wrong (see its entry).                           |
 | IBM: "campaign landing pages"                                            | Three multi-page microsites across three eras, plus the email programme.                           |
+| Estorick era started 2024, "rebuilt on Statamic in 2025"                  | Agency repo is 2011-09 (`estorick-collection-web`). Statamic v2 live since 2016 and still receiving commits as of 2026-07. The 2025 Statamic 5 rebuild has not replaced it. |
 
 ---
 
@@ -63,7 +64,7 @@ Several page entries cover more than one repository.
 | UST NavigatorAI              | `ust-ai-assessment-tool-api`, `-web`, plus the `-aws-api` / `-aws-web` variants       |
 | Canton Tea                   | `canton-tea-shopify-theme` (plus three older Canton Tea repos)                        |
 | Price Forbes RE              | `ardonagh-pfre-web`                                                                   |
-| Estorick Collection          | `estorick-collection-website` (plus `estorick-collection`, `estorick-collection-web`) |
+| Estorick Collection          | `estorick-collection-web` (live), `estorick-collection-website` (v5 rebuild), `estorick-collection` (Astro/Strapi spike) |
 | Maersk Innovation Center     | `maersk-innovation-center-cms`, `maersk-innovation-center-website`                    |
 | Price Forbes                 | `price-forbes-website`                                                                |
 | Champion Homes brand network | `champion-hom-api`, `champion-hom-cms`, `champion-hom-web`, and ~25 siblings          |
@@ -135,7 +136,7 @@ import.
 
 ### G42 Intelligence Grid — `g42-intelligence-grid-web`
 
-**Git:** 2025-05 → 2026-06. **Live:** `intelligencegrid.g42.ai`.
+**Git:** 2025-05 → 2026-06. **Live:** `intelligencegrid.g42.ai` (unlinked; clients anonymised).
 
 Next.js ^16.2.6 App Router with route groups `(web)` and `(cms)`, React 19, TypeScript 5.9,
 Tailwind v4, pnpm 11 / Node 24.
@@ -180,6 +181,8 @@ Three repos, one product. HMM = Hiscox Maturity Model.
 | `hiscox-hmm-web`            | 40-question public site      | 2021-02 → 2026-09 |
 | `hiscox-hmm-web-components` | 10-question embeddable modal | 2021-01 → 2024-12 |
 
+**Page era:** 2021–present (api and web still receiving commits as of 2026-09).
+
 **API:** PHP 8.3+, Laravel 8.83, `astrotomic/laravel-translatable` across de, en_US, en_GB,
 es, fr, nl. Content, questions, ratings and result copy are stored translated in the
 database and seeded. Locale middleware on API routes. Email verification by throttled PIN
@@ -201,7 +204,7 @@ the API's `/settings/{uuid}` for per-integration locale and CTA copy. Calls
 
 ### Hiscox Cyber Insight PRO — `hiscox-hci-pro`
 
-**Git:** 2020-09 → 2026-06. **Live:** `pro.hiscoxcyberinsight.com` (login wall, unlinked).
+**Git:** 2020-09 → 2026-09. **Page era:** 2020–present. **Live:** `pro.hiscoxcyberinsight.com` (login wall, unlinked).
 HCI = Hiscox Cyber Insight.
 
 Internal tool for Hiscox staff: domain search and risk reporting, company and platform
@@ -240,6 +243,24 @@ Laravel Nightwatch, Vite 7, Tailwind 3, Alpine CSP build, pnpm 10.
   with a static bearer token, rendering risk score, risk factors, infrastructure analysis,
   exposed credentials and compromised systems. Backend is not in any surveyed repo.
 
+### Hiscox Cyber Fusion Portal — `hiscox-cyber-fusion-portal`
+
+**Git:** 2025-08 → 2026-09. **Page era:** 2025–present. CFP = Cyber Fusion Portal. No public URL; Entra-gated.
+
+Next.js 15 with standalone Docker output, React 19, TypeScript. Payload CMS 3.85 on
+`@payloadcms/db-postgres` with Lexical rich text, in the same app. next-auth 5 beta against
+**Microsoft Entra ID**. Tailwind CSS 4, `@base-ui/react`, Azure Blob storage plugin, pnpm 11,
+Node 22. `@ai-stack/payloadcms` AI plugin on the Pages collection. Video processing through
+`@ts-ffmpeg/fluent-ffmpeg` and `sharp`.
+
+Collections: Users, Media, Pages, Services, Parameters, Requests, Tags,
+FormSubmissionAttempts, FrontendUserPreferences. Globals: Blog, Home, Footer, Settings.
+
+Service request forms use reCAPTCHA v3, per-user rate limiting with lockout after repeated
+attempts, file validation and server actions, then forward to an external
+`REQUEST_ENDPOINT_URL`. Tests are Vitest integration (`tests/int/`) and Playwright e2e
+(`tests/e2e/`). `pnpm ci` runs `payload migrate && pnpm build`.
+
 ### UST NavigatorAI
 
 **Git:** 2023-09 → 2026-05 (both api and web). Client is UST, a global digital-services firm.
@@ -267,24 +288,6 @@ deployed to **Firebase Hosting**. Callables listed in `src/utils/firebase.jsx`.
 the difference is branding ("UST NavigatorAI for AWS", AWS logo) and
 `prompts/actions.txt` aligning recommendations to AWS AI products rather than UST services.
 The AWS web variant is on React 18 and looks less maintained.
-
-### Hiscox Cyber Fusion Portal — `hiscox-cyber-fusion-portal`
-
-**Git:** 2025-08 → 2026-05. CFP = Cyber Fusion Portal. No public URL; Entra-gated.
-
-Next.js 15 with standalone Docker output, React 19, TypeScript. Payload CMS 3.85 on
-`@payloadcms/db-postgres` with Lexical rich text, in the same app. next-auth 5 beta against
-**Microsoft Entra ID**. Tailwind CSS 4, `@base-ui/react`, Azure Blob storage plugin, pnpm 11,
-Node 22. `@ai-stack/payloadcms` AI plugin on the Pages collection. Video processing through
-`@ts-ffmpeg/fluent-ffmpeg` and `sharp`.
-
-Collections: Users, Media, Pages, Services, Parameters, Requests, Tags,
-FormSubmissionAttempts, FrontendUserPreferences. Globals: Blog, Home, Footer, Settings.
-
-Service request forms use reCAPTCHA v3, per-user rate limiting with lockout after repeated
-attempts, file validation and server actions, then forward to an external
-`REQUEST_ENDPOINT_URL`. Tests are Vitest integration (`tests/int/`) and Playwright e2e
-(`tests/e2e/`). `pnpm ci` runs `payload migrate && pnpm build`.
 
 ### Canton Tea — `canton-tea-shopify-theme`
 
@@ -340,21 +343,37 @@ full-page, with `refresh-cache.php` plus `thef_clear_cache` / `thef_generate_cac
 Guzzle sitemap warmup. `composer test` runs PHPCS (PSR-2) only; no PHPUnit, no CI. The root
 README is stock Bedrock boilerplate.
 
-### Estorick Collection — `estorick-collection-website`
+### Estorick Collection
 
-**Git:** 2025-01 → 2026-02. Page era is 2024–present with the note "rebuilt on Statamic in
-2025", because an earlier 2024 build preceded it (`estorick-collection`,
-`estorick-collection-web`). **Live:** `estorickcollection.com`.
+Three repos, one long-running site. **Live:** `estorickcollection.com` is still the
+Statamic 2 codebase. **Page era:** 2011–present. Sergio's first commit is 2012-02; the
+agency repo starts 2011-09 (Matteo Pescarin). The previous page era of 2024–present was
+wrong — it treated the 2025 Statamic 5 rebuild as the product and ignored
+`estorick-collection-web`.
 
-Statamic 5.69 on Laravel 12, PHP 8.5. Antlers templates
-(`resources/views/*.antlers.html`), Vite 7 with `laravel-vite-plugin`, Tailwind CSS 4,
-Alpine.js 3.15. Content is **flat files** in `content/collections/` — over 1250 entries.
+| Repo                           | Role                                      | Git               |
+| ------------------------------ | ----------------------------------------- | ----------------- |
+| `estorick-collection-web`      | Live Statamic 2 site                      | 2011-09 → 2026-07 |
+| `estorick-collection-website`  | Statamic 5 rebuild, not live              | 2025-01 → 2026-02 |
+| `estorick-collection`          | Astro + Strapi spike, 8 commits, abandoned | 2026-02 → 2026-02 |
 
-Addons: SEO Pro, **`statamic/ssg` 3.1**, responsive images, reCAPTCHA, Mailchimp, Google
-Maps, Blade Icons / Font Awesome. Static output goes to `storage/app/static`; static caching
-is configured. A modular page builder (cards, split content, map, contact form, memberships)
-is documented in `CMS_DATA_STRUCTURE.md`, which also documents the `alt` field on assets.
-PHPUnit 11 and Laravel Pint; no CI.
+**Live (`estorick-collection-web`):** Statamic v2 on Laravel, Antlers templates, PHP 7,
+Node 10. Theme `estorickcollection` is Gulp 3, Sass, jQuery, normalize.css. Content is
+flat files; the control panel still receives client edits ("Entry saved", "Submission
+saved") as of 2026-07, alongside feature work (membership redesign, same month). Statamic
+files landed in 2016-10 ("statamic files added, old files deleted").
+
+**Rebuild (`estorick-collection-website`):** Statamic 5.69 on Laravel 12, PHP 8.5. Antlers
+templates, Vite 7, Tailwind CSS 4, Alpine.js 3.15, `statamic/ssg` 3.1. A modular page
+builder is documented in `CMS_DATA_STRUCTURE.md`. Last commit 2026-02-20; it has not
+replaced the live v2 site.
+
+**Spike (`estorick-collection`):** pnpm workspace, `apps/web` Astro beta + Tailwind 4,
+`apps/cms` Strapi 5. Abandoned after two days.
+
+The page stack and highlights describe the **live** v2 site (Statamic, Laravel, Antlers,
+Sass, Gulp), with the v5 rebuild called out in a highlight. Note on the page: "on Statamic
+since 2016".
 
 ### Maersk Innovation Center
 
@@ -402,8 +421,9 @@ config files but no `production.php`. PHPCS only, no CI.
 
 ### Champion Homes brand network
 
-**Git:** api 2015-09 → 2024-09, cms 2015-10 → 2026-06, web 2015-10 → 2024-09. **Live:**
-`championhomes.com`. In transition to another supplier, but some sites were still ours.
+**Git:** api 2015-09 → 2024-09, cms 2015-10 → 2026-06, web 2015-10 → 2024-09. **Page era:**
+2015–present (CMS still receiving commits). **Live:** `championhomes.com`. In transition to
+another supplier, but some sites were still ours.
 
 A three-tier headless architecture for a US manufactured-home builder.
 
@@ -634,12 +654,12 @@ Checked 2 September 2026 with a following-redirects HEAD request.
 
 | URL                                    | HTTP | Linked on page | Note                               |
 | -------------------------------------- | ---- | -------------- | ---------------------------------- |
-| `theframeworks.com`                    | 200  | yes            |                                    |
-| `intelligencegrid.g42.ai`              | 200  | yes            | supplied by Sergio                 |
-| `mm.hiscoxcyberinsight.com`            | 200  | yes            |                                    |
-| `estorickcollection.com`               | 200  | yes            |                                    |
-| `innovation.maersk.com`                | 200  | yes            |                                    |
-| `championhomes.com`                    | 200  | yes            | in transition to another supplier  |
+| `theframeworks.com`                    | 200  | yes            | employer; featured CMS publishes this site |
+| `intelligencegrid.g42.ai`              | 200  | no             | live; unlinked (clients anonymised) |
+| `mm.hiscoxcyberinsight.com`            | 200  | no             | live; unlinked (clients anonymised) |
+| `estorickcollection.com`               | 200  | no             | live; unlinked (clients anonymised) |
+| `innovation.maersk.com`                | 200  | no             | live; unlinked (clients anonymised) |
+| `championhomes.com`                    | 200  | no             | live; unlinked (clients anonymised); in transition |
 | `pro.hiscoxcyberinsight.com`           | 200  | no             | login wall; policy is public-only  |
 | `planner.sergioagosti.org`             | 200  | no             | unlinked by choice                 |
 | `ardonaghtrust.org`                    | 200  | no             | not confirmed as still ours        |
@@ -668,21 +688,27 @@ Agreed with Sergio while rewriting, so the page stays consistent if it is extend
   technically notable. No outcome or value claims. Specifically dropped: "Most of the build
   was completed within weeks of kickoff… retained at senior level", and the "NDA: details
   available in person" line.
-- **Clients are named.** G42, Hiscox, Ardonagh, Price Forbes, Champion Homes, IBM, UST,
-  Dematic and The Frameworks were all cleared.
+- **Clients are anonymised on the page.** Names in this document are the private mapping.
+  G42, Hiscox, Ardonagh, Price Forbes, Champion Homes, IBM, UST, Dematic and The Frameworks
+  were cleared; only The Frameworks is named on the page, as the employer.
 - **Dates are real year ranges** from first and last commit, not "multi-year engagement".
+  **Present** means the work is still ours and still receiving commits (checked 12 September
+  2026): the Frameworks CMS, cyber maturity model, cyber risk research tool, cyber fusion
+  portal, art museum website, home builder brand network. Closed work ends in a year.
   Exceptions where Sergio overrode the git record: Frontflow (2018–2022), the email programme
-  (2012–2022), Estorick's 2024 start, Canton Tea's 2023 start.
+  (2012–2022), Canton Tea's 2023 start.
 - **Ordering:** client work is reverse chronological by last activity.
 - **One entry per coherent product.** Merged clusters were split — Ardonagh from Price
   Forbes, IBM from Dematic, and the Hiscox suite into three.
 - **IBM is two entries**, not four: the "This is IBM" campaign covering both builds, and the
   email programme. `ibm-tealeaf` was dropped as unrepresentative.
-- **Links only where the code is still ours** and a visitor can actually see the page. No
-  login walls, no client corporate homepages standing in for the work.
-- **Field template:** title, subtitle, summary, Role, Notes, era (+ optional note), stack
-  tags, links. The bullet list is labelled "Notes", not "Engineering highlights".
-- Backtick-delimited terms in notes render as inline `<code>` via the `prose` mixin in
+- **Links only where the code is still ours**, a visitor can actually see the page, **and
+  naming the URL would not identify an anonymised client.** No login walls, no client
+  corporate homepages standing in for the work. In practice that leaves `theframeworks.com`.
+- **Field template:** title, subtitle, summary, Role, Details, era (+ optional note), stack
+  tags, links. The bullet list is labelled "Details", not "Notes" or "Engineering highlights".
+- The page stack tag for the CMS UI is **Solid.js**; the library in the repo is SolidJS.
+- Backtick-delimited terms in details render as inline `<code>` via the `prose` mixin in
   `src/pages/projects.pug`, styled by the `code` rule in `src/main.css`.
 
 ---

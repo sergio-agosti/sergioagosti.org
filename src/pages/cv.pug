@@ -14,14 +14,15 @@ block meta
   )
 
 block title
-  title Sergio Agosti - CV - Full-stack Web Developer
+  title Sergio Agosti - CV - Full-stack web developer
 
 mixin experience(role, employer, dates, datetime)
   div(class="space-y-1")
     div(class="print:flex print:items-baseline print:justify-between print:gap-6")
       h3
         | #{ role } · #{ employer }
-      p(class="small text-gray-600 dark:text-gray-400 print:shrink-0 print:text-right")= dates
+      p(class="small text-gray-600 dark:text-gray-400 print:shrink-0 print:text-right")
+        time(datetime=datetime)= dates
     block
 
 block page-header
@@ -33,7 +34,7 @@ block page-header
   div(class="hidden print:flex print:items-end print:justify-between print:gap-8 print:pb-3")
     div(class="space-y-1")
       h1(class="text-teal-600") Sergio Agosti
-      p Full‑stack Web Developer
+      p Full‑stack web developer
     address(class="small text-gray-600 not-italic print:text-right")
       | Devon, UK
       br
@@ -47,13 +48,13 @@ block content
   section(aria-labelledby="experience-heading", class="space-y-4 print:space-y-2")
     h2#experience-heading Experience
     div(class="space-y-6 print:space-y-4")
-      +experience("Full‑stack Web Developer", "The Frameworks", "2011–present")
+      +experience("Full‑stack web developer", "The Frameworks", "2011–present", "2011")
         p Build marketing websites, e‑commerce storefronts and bespoke web applications for clients across a range of sectors, including several long‑running engagements. I bring a strong understanding of design to full‑stack work spanning front end, back end and deployment infrastructure, working effectively with distributed teams; lately focused on AI‑assisted development.
-      +experience("Front‑end Developer", "AOL", "9‑month contract, 2011")
+      +experience("Front‑end Developer", "AOL", "9‑month contract, 2011", "2011")
         p Developed front‑end features for a high‑traffic blog platform.
-      +experience("Web Developer", "Sognando Londra", "2009–2011")
+      +experience("Web Developer", "Sognando Londra", "2009–2011", "2009")
         p Maintained the agency's public website and built a customer‑facing system for selling travel, study and work packages to London, handling purchases and order management end to end.
-      +experience("Co‑founder and Web Developer", "Omnidea", "2006–2009")
+      +experience("Co‑founder and Web Developer", "Omnidea", "2006–2009", "2006")
         p Co‑founded a small agency building bespoke cross‑platform software, focused on web‑based applications.
   section(aria-labelledby="skills-heading", class="space-y-4 print:space-y-2")
     h2#skills-heading Skills
@@ -63,14 +64,14 @@ block content
       dt(class="font-semibold") Data
       dd MySQL · PostgreSQL · MongoDB · Redis
       dt(class="font-semibold") Frameworks
-      dd Laravel · Vue/Nuxt · React/Next.js · Astro · Solid.js · Shopify · Tailwind CSS
+      dd Laravel · Vue/Nuxt · React/Next.js · Astro · Solid.js · WordPress · Shopify · Tailwind CSS
       dt(class="font-semibold") Tooling
       dd Vite · Node.js · Bun · Linux/DevOps · Git · CI/CD · AI‑assisted development
     p(class="small") Selected work: #[a(href="https://sergioagosti.org/projects") sergioagosti.org/projects]
   section(aria-labelledby="education-heading", class="space-y-4 print:space-y-2")
     h2#education-heading Education and training
     p Bachelor's degree in Computer Science · University of Venice
-    p #[a(href="https://aihero.dev", rel="noopener") AI Hero] · AI‑assisted development course by Matt Pocock
+    p #[a(href="https://aihero.dev") AI Hero] · AI‑assisted development course by Matt Pocock
   section(aria-labelledby="additional-heading", class="space-y-4 print:space-y-2")
     h2#additional-heading Languages and interests
     p #[strong Languages:] Italian (native) · English (fluent)

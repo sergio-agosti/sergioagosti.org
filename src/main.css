@@ -63,7 +63,8 @@
   h2,
   h3,
   small,
-  .small {
+  .small,
+  .smaller {
     @apply text-[calc(1em*pow(var(--type-ratio),var(--type-power)))];
   }
   h1,
@@ -83,6 +84,9 @@
   small,
   .small {
     @apply [--type-power:-1];
+  }
+  .smaller {
+    @apply [--type-power:-2];
   }
   code {
     @apply rounded bg-teal-600/20 px-1.25 text-gray-900 dark:bg-teal-400/20 dark:text-gray-100;
